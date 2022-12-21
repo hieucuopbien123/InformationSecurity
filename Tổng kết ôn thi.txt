@@ -1,0 +1,254 @@
+B1: => quan trọng là hiểu hết các thuật ngữ, bất cứ 1 thuật ngữ nào cx phải hiểu
+3 component của bảo mật; 
+4 loại threat cơ bản cũng chỉ là nghe lén và sửa đổi kiểu sửa để hiểu sai, sửa để phá hoại, sửa để chiếm đoạt; snooping - confidentiality; modification - integrity; 
+MITM xen giữa bóp méo vẫn khớp; Repudiation of origin và denial of receipt: từ chối đã từng đặt hàng và từ chối đã nhận hàng slide; denial of service; 
+Policies and mechanisms: policies xđ thế nào mới bảo mật và mechanism chỉ cách để đạt được điều đó; Goal: prevent, detect, fix; Assurance: chuẩn đánh giá UD có làm đúng nhưng gì nó phải làm -> dùng các bước của SE: đặc tả, thiết kế và cài đặt check các bước thỏa mãn requirement không
+Operational issue: giá, cần bảo vệ tới mức độ nào, law; Human issues: quyền lực và trách nhiệm, lợi nhuận, con người nội bộ
+Security lifecycle: có mối đe dọa thì ta phải xây dựng chính sách bảo vệ, để thực hiện được mechanism của policies cần nêu rõ yêu câu để design rồi implementation và vận hành, maintainance khi có threat mới và life cycle lặp lại.
+Vulnerability, threat, attack, control; Attack model;
+
+B2:
+Crypto là gì (sách), cryptographer, cryptology(cryptanalysis/cryptography)
+Các nly cơ bản(bên dưới); secret/symmetric key cryptography: same key for both, có thể đổi vai trò, khó tạo khóa mà bí mật; public key cryptography: tạo 1 phát public và secret key khác nhau rồi đưa public cho đối tác; 
+Insecure khi bị break dưới 1 attack model nào đó, secure khi prove được vẫn đạt security goal dưới mọi attack model(rất khó); secure cũng có thể chứng minh ez hơn bằng cách chứng minh nó cũng đạt được mức secure như 1 thuật toán secure kinh điển khác. 
+Breaking cipher phụ thuộc vào năng lực tấn công: loại thông tin, khả năng tiếp xúc với máy mật mã, năng lực tính toán; 4 loại tấn công + both adaptive từ yếu đến mạnh; 4 model đánh giá bảo mật từ mạnh đến yếu; 
+Shift cipher -> multiplicative cipher, affine cipher; 
+
+General mono alphabetical substitution cipher: ánh xạ chữ cái từ 1 bảng chữ cái cố định => phá bằng frequency analysis: gom cùng tần số 1 nhóm, check từ điển các pattern, đoán từ thg gặp; 
+Cụ thể là nó chả shift gì cả mà ánh xạ chữ cái 1-1 r thế thuần => cách giải ta h mói biết: nó lập 5 mức xuất hiện chữ cái nhiều trong văn viết. Khi giải được 1 vài từ thì nó thay thế từ ở các mức khác nhau và vị trí chưa biết và đoán từ có nghĩa thì ok. Giải từ những chữ có tần suất cao về thấp.
+
+2 PP làm bẳng phẳng hóa đồ thị tần suất: 
+Mã bảng thế đồng âm: 1 từ cho ra nhiều output. Nó xây theo tần suất xh từ đó trong văn viết, xh nhiều sẽ có nhiều đồng âm hơn => nhờ đó làm bằng phẳng đồ thị tần suất
+Poly-alphabetic Substitution Cipher(mã đa bảng thế) là thể loại dùng nh alphabet và hoán đổi luân phiên mạnh hơn chút. Nó dùng key kiểu 12 tức là theo thứ tự dùng lần lượt trộn 2 bảng kiểu 12121...
+Nhờ đó phân bố các từ ít bị thay đổi hơn làm bằng phẳng đồ thị hơn.
+
+Vigenère cipher: thế bảng chữ cái bằng password, key lặp liên tục => tìm được key length là toang rồi phá bằng cách chia ra nhiều shift cipher nhỏ;
+One time-pad: tương tự nhưng key dài bằng text và chỉ dùng 1 lần, sinh random => key space; Onetimepad ngày xưa chọn từ trong sách xong dùng số trang dòng cột để nói từ đó k an toàn. Ngày nay an toàn hơn bằng cách sinh random rất ok, nhược điểm duy nhất là key dài quá; => TK các cách trong slide;
+
+1 hệ mã đạt được bí mạt tuyệt đối khi khi hệ mã đứng vững trong tấn công chỉ biết bản mã với năng lực tính vô hạn và độ dài lộ tùy ý. 
+Độ dài bản mã đôi khi rất quan trọng vì với các thuật toán mã hóa yếu vẫn k thể giải ra nếu chỉ lộ 1 độ dài ngắn. VD giải mã cộng tính: càng lộ số lượng nhiều thì xác suất rơi vào 1 khóa thg giảm đi, trừ khóa đúng sẽ có xs tăng lên và cuối cùng duyệt trâu lấy được khóa đúng nhất. Với 1 số lượng ít, vc duyệt trâu có thể ra được nhiều thứ có nghĩa nhưng có thể k ra được 1 bản rõ duy nhất mà ra nhiều bản rõ k biết lấy cái nào. Mức độ bảo mật của cipher N0 = số lượng ký tự tối thiểu bản mã phải có để chắc chắn sẽ chỉ ra duy nhất 1 bản rõ
+Trong 1 hệ thống đảm bảo bí mật tuyệt đối thì bản mã tiết lộ cho kẻ thù k đem lại 1 ý nghĩa phân tích nào cho vc giải mã, k hề thay đổi xác suất phân phối của plaintext ban đầu. Điều này chỉ đạt được khi khóa rất dài làm cho truyền khóa giữa 2 bên phi thực tế. Ta chỉ có thể đạt dược gần đúng hay hệ thống chỉ an toàn với mức thực tế. 
+
+Đánh giá mức độ bảo mật của 1 cipher:
+d là độ dư thừa của ngôn ngữ sử dụng biểu diễn thông tin. Trong 1 đoạn văn bản có 1 vài ký tự bị khuyết, ta vẫn có thể đoán ra văn bản gốc, các thứ bị khuyết gọi là dư thừa vì nó k bắt buộc phải có để hiểu cả văn bản => d = R - r bits với R là absolute rate là lượng bit cần dùng để biểu diễn 1 từ trong bảng chữ, r là true rate của ngôn ngữ vừa đủ để hiểu thôi (lượng bit trung bình ở dạng tối giản) => R = log2A bits với A là kích thước bảng chữ
+Mức độ bảo mật của 1 cipher = unicity distance = N0 = Log2E/d với E là số lượng key
+=> Để tăng tính bí mật thì N0 cần lớn: tăng không gian khóa, giảm độ dư thừa. Có thể giảm độ dư thừa qua thuật toán nén để đưa nó về ~0; Phẳng hóa đồ thị tần suất bằng cách chèn thêm vào các đoạn văn bản ngẫu nhiên
+
+B3:
+Mã hóa hoán vị cột
+Block cipher ưa chuộng hơn stream cipher, small size có thể bị đảo ngược nhờ lọc từ giá trị lên cột vì ít cột có nó; Điều kiện an toàn là block size + key space đủ lớn; Vòng lặp trong block cipher dạng basic thực tế nó sinh tiếp khóa con từ khóa cha bằng key schedular alg chứ kp chọn bừa; Hàm đối hợp là f(f(x)) = x thg dùng trong hàm cơ sở vòng lặp chứ kp luôn dùng bảng;  => hay, tức hàm IC là hàm giao hoán đối hợp đó, các hàm f khác bên trong là dùng bảng block cihper;
+Confusion - substitution nhiều bảng và diffusion - transportation + permutation; 
+
+Lucifer => DES vì vừa đủ để break mà ng khác k thể break và rẻ hơn; 64 block size, 56 key size, 16 round; 
+Thuật toán sinh khóa con: khóa cha có 64 bit nhưng 8 bit là parity và 56 bit thực tế, PC1 đầu tiên sẽ trừ 8 bit còn 56, sau đó PC2 sẽ tách, shift, hoán vị và cuối cùng cho ra key 48bits; 
+Mỗi hàm F đều có tính đối hợp: f = f^-1;
+input 64 bit chia làm 32-32 -> 32 cái sau được mở rộng thành 48bits XOR với subkey -> 48 bits tách làm 8 nhóm 6 bits và đi qua biến đổi Sbox; Cụ thể 6 bit sẽ đi qua Sbox thì bit đầu và cuối để xác định 1 dòng trong 4 dòng của Sbox và 4 bit ở giữa sẽ bị mã hóa; Cuối dùng có 8 nhóm 4 bits, chúng bị hoán vị cho nhau và cho đầu ra cuối cùng. Hợp 32 bit sau với 32 bit trước và hoán vị so le 2 cái đó. Sau 16 lần đảm bảo nó được trộn tung lên và đổi 1 bit chắc chắn vị trí đầu ra đổi sẽ rất loạn. 
+Hiện tại brute force được nhưng giá thành rất cao và công nghệ phức tạp.
+DES - DES => 57 bit
+DES - DES^-1 - DES => 112bit
+
+AES là 1 mật mã tương đương thay thế DES có các điểm nổi bật: số lượng round phụ thuộc chiều dài khóa, blocksize và key size variable; decryption k giống với encryption, để implement giống phải đổi key scheduler; attack nó k practical vì cần 2^85 chosen word; thích hợp cả phần mềm và cứng
+
+Bên trên input 64 bits, thực tế kích thước k cố định nên cần cát nhỏ thành từng đoạn 64 bits r kết hợp lại theo sơ đồ. Có nhiều loại sơ đồ là các encryption mode khác nhau; 
+ECB: Xếp đúng thứ tự, input block trùng đầu ra sẽ trùng, k truy ngược được nhưng có thể giả mạo được, thg dùng trong database; 
+CBC: Dùng 1 IV đầu vào và nối dần thành block chain;
+CFB: Như CBC nhưng nó cải tiến cho phép trong các ứng dụng truyền tin liên tục. Cơ chế: Vector input 64 bit đi qua thuật toán mã hóa -> Đầu ra của thuật toán mã hóa lấy k bit trái XOR plain text => ra k-bit gửi đi luôn dồng thời nhét vào bên phải vector ban đầu, dịch vector đi k-bit trái nữa và cứ thế lặp lại (hình vẽ sách)
+OFB: Tương tự nhưng cải tiến hơn
+Plaintext XOR với toàn bộ đầu ra của thuật toán mã hóa cho ra cipher text nhưng độc lập, tuy nhiên output của thuật toán mã hóa vẫn phụ thuộc chứ k độc lập nhưng có thể thực hiện tiền xử lý từ trước nên k ảnh hưởng tốc độ, thời gian xử lý nhanh hơn. Nó giống CBC hơn, có thể chia k bit tương tự để hỗ trợ lien tục như CFB. 
+CTR: y hệt ECB nhưng nó random bằng cách dùng 1 số tự nhiên IV ban đầu cho tăng dần. Nhờ v có thể tính song song được mà chuỗi tin khác biệt hoàn toàn, k bị lặp và k cần dùng móc xích. Có thể tiền xử lý được output của hàm sinh mã vì IV mỗi block luôn xác định là gì r
+
+B4: 
+Public key cryptography; Tại sao secret key k tốt: số lượng pair lớn, phải thiết lập 1 kênh chắc chắn an toàn để trao đổi key, k có tính chất non-repudition
+RSA; Tốc độ chậm thg dùng khi thực sự cần và chấp nhận tốc độ chậm; Thg kết hợp PKC, SKC kiểu PKC để tạo khóa bí mật thống nhất cho phiên làm việc, trong phiên đó sẽ dùng tiếp SKC để trao đổi thông tin; 
+Cơ chế RSA và VD trong sách: nó mã hóa là theo giá trị của binary sau khi đổi sang decimal không được vượt quá n, 1 đoạn tin 1 lần mã hóa chỉ max là n thôi. 
+Cách tính mod mũ nhanh. 
+Thư mục khóa công khai; 
+
+Chứng thực digital signature: ký bằng private key và đọc tin bằng cách dùng mã khóa công khai. A sẽ k thể chối bỏ rằng đã từng ký cái này, thg ký vào hàm băm của 1 mã thay vì ký thẳng mã sẽ bảo mật hơn và hàm băm cho độ dài tùy ý về độ dài fix. Nhờ đó ký 1 dòng tin siêu dài cũng k vấn đề gì và tiết kiệm trên đường truyền hơn.  => hay
+Thg kết hợp vừa chứng thực vừa gửi tin: A ký Dza(X) và gửi cho B cái EZb(Dza(X)) -> B phục hồi X bằng Eza(DzB(...)) => A gửi cho B an toàn và chỉ B đọc được bằng pivkey của mình; A k thể chối bỏ việc đã ký X;
+
+
+
+
+Các dạng bài: 
+Lý thuyết: giải thích các thuật ngữ cryptography, cryptanalysis, known plaintext only attack, confusion, difusion, exhaustive key searching, cryptology,...
+Mã hóa mono alphabetical cipher trên đoạn plaintext cho trước
+Mã hóa và giải mã shift cipher, mã đa bảng thế, mã bảng thế đồng âm, vigenere cipher, one time pad.
+Giải mã đoạn mono cipher cho trước bằng phương pháp thống kê
+Mã hóa và giải mã theo mật mã khối
+Mã hóa hoán vị cột
+Tìm số lượng khóa của multiplicative cipher,...
+Tính mod mũ cực lớn
+Giải Knapsack với vector siêu tăng 
+Tìm nghịch đảo theo modulo
+Mã hóa và giải mã theo RSA
+Tấn công có điều kiện vào RSA
+
+
+
+
+KT khác:
+B1:
+Snooping có thể bởi passive wiretapping là khi network bị monitor, data tự động bị nghe lén
+Modification có thể bởi active wiretapping là data chủ động bị đổi khi đi qua network như MITM.
+
+B2:
+2 mô hình truyền tin thuở sơ khai: 1 là dịch lên 1 số lượng trong bảng chữ cái; 2 là thực hiện XOR văn bản gốc(plaintext) với chuỗi binary random dài bằng văn bản gốc(khóa)
+cipher: phép mã hóa; ciphertext: đoạn plain text đã được mã hóa.
+Nly cơ bản: 
+- Digital signature chứng tỏ để truyền tin bí mật không cần thiết cả 2 bên phải nắm khóa bí mật, tìm 1 cách sender gửi khóa bí mật cho receiver ngầm. 
+- Toàn bộ cơ chế mã hóa thực chất là bảo mật key, còn lại thuật toán chạy ra sao hay văn bản sau khi mã hóa như nào đều có thể public với kẻ thù. Dù có bảo mật thì kẻ thù vẫn sẽ có cách nào đó bắt nó trong quá trình truyền tin thôi. 
+Về mặt lý thuyết PP public key cryptography là luôn break được nếu vét cạn nhưng chỉ là bất khả thi về khối lượng tính toán. 
+Để tìm length key của vegenere: Tìm repeated pattern -> nếu có nhiều pattern giống nhau mà kc 2 cái liên tiếp khác nhau thì lấy cái có kc nhỏ nhất -> lập bảng từng pattern và kc của pattern đó -> lấy kc mà có frequence lớn nhất trong bảng. VD có 20 pattern có cùng kc 2 cái liên tiếp là 10 thì chọn 10 hoặc ước của 10 là hợp lý. => hay
+
+B4: 
+Sơ đồ tránh nhầm: 
+Cryptography --- Symmetric Cryptography --- Stream cipher: Shift cipher -> multiplicative cipher / affine cipher -> mono-alphabetical (substitution) cipher -> Vigenere cipher -> one tim pad cipher
+                                        --- Block cipher: Basic -> Lucifer -> DES -> 2 DES / 3 DES -> AES
+                                              --- Encryption mode: ECB -> CBC -> CFB -> OFB -> CTR
+             --- Asymmtric Cryptography --- f 1 chiều có cửa bẫy -> Knapsack -> RSA
+
+CFB nó k có tiền xử lý gì hết, cứ từng bước qua từng hàm mã hóa rồi XOR với plaintext rồi kết quả sau đó mới được gửi đi tiếp, tức 1 cục xong mới đến cục tiếp theo thì tiền xử lý kiểu gì, nó vẫn y hệt CBC mà
+OFB nó tiền xử lý từng hàm mã hóa, sau đó 
+
+Giải thích RSA
+z khóa bí mật và Z khóa công khai. Hoạt động đối xứng:
+Plaintext = D(z,E(Z,Plain text)) => dùng trong bài toán truyền tin mật
+Ciphertext = E(Z,D(z,Plain text or hash của plain text)) => dùng tạo chữ ký điện tử
+
+Nguyên tắc là dùng hàm 1 chiều. VD: X + Y = Z. Nếu biết X và Y tìm Z thì rất dễ nhưng biết Z mà đòi tìm X, Y thì rất khó. Cách duy nhất là duyệt trâu. Và đương nhiên bài toán thực phạm vi sẽ rất lớn k dẫn đến bát khả thi để phá trong thực tế. Nhưng nếu chỉ 1 chiều mãi thì k làm ăn được gì, ta cần xây 1 trapdoor giúp có Z mà tìm ra X, Y nhanh hơn. Trap door chính là private key và người có private key có thể tìm ra kết quả rất nhanh. VD ở trên thì piv key có thể là X, Y là 2 số nguyên <= 11 chẳng hạn. Từ đó tính đơn gian có thể mò ra X = Y = 10. Có 2 PP xây hàm 1 chiều có cửa bẫy: Knapsack(thất bại), RSA (ok)
+
+Knapsack: thuật toán túi ba lô là NP hard => Cho set S={a1,a2,a3,a4,...} tìm Sx là tập con của S sao cho tổng là 8 chẳng hạn. Bài này NP hard bởi vì cách duy nhất là duyệt trâu, phải tìm mọi kết quả và chỉ có 1 kết quả đúng. Tạo trap door bằng cách sử dụng vector siêu tăng (x1,x2,x3,..) sao cho xi sẽ lớn hơn tổng các xi trước đó cộng lại, biến bài toán gốc về thuật toán tham lam. Như v A gửi tin cho B thì A sẽ mã hóa bằng cách tạo ra 1 bài toán knapsack và gửi cho B, B có vector siêu tăng giải bài toán đó được luôn và đọc được tin. Vấn đề là A tạo ra được đúng bài toán mà dùng vector siêu tăng do B định sẵn dù kb vector đó là gì. A sẽ phải dùng public key của B. Thực hiện bằng Merkle Hellman.
+Bài Knapsack thực chất có trọng số nên phải là: Tìm {b1,b2,b3,b4,...} sao cho b1xa1 + b2xa2 + b3xa3 + ... = 8 mới đúng
+
+Merkle Hellman: A tạo trước a' là 1 vector siêu tăng
+-> biến đổi qua 1 hàm g thành khóa công khai a là vector không còn tính siêu tăng nữa: a = omega x a' (mod m) với m được chọn > tổng mọi a' và omega ngẫu nhiên nguyên tố cùng nhau với m => Bởi vì như v thì từng chiều của vector a sẽ k lớn quá m và không có giá trị nào trùng nhau nếu ban đầu ở a' nó k trùng nhau vì omega nguyen tố cùng nhau với m tức là k thể có 2 số khác nhau x omega (mod m) cho ra cùng giá trị được => khóa bí mật (a', omega, m)
+-> Gửi a cho B và B tạo cipher text T từ plaintext X với: T = a x X
+-> A nhận T về giải mã bằng cách tính nghịch đảo của omega là omega^-1 => T' = omega^-1 x T = a' x X (mod m) => biết T', a', m thì chính là bài toán Knapsack nhưng a' là vector siêu tăng nên giải ra X dễ dàng bằng tham lam. Người khác sẽ phải duyệt trâu chứ k giải được nhanh như A. 
+
+Thay vì duyệt trâu a với 2^n, nó sẽ tìm cặp omega và m để biến đổi được a' về a là xong
+
+Giải bài toán ban đầu người ta dùng brute force thì vét cạn rất lớn. Về sau người ta tìm ra chỗ yếu của giải pháp này là đi tìm 1 cặp (m', omega') và có thể giải bài này dưới 1h. 
+
+Về thuật toán tìm nghịch đảo modulo đồng dư: Ở bên trên để giải thì A phải tìm x = omega^-1 (mod m) hay x*omega = 1 (mod m) bằng thuật toán ơ clit mở rộng. 
+Thuật toán ơ clit mở rộng vốn dùng để tìm ước chung lớn nhất. Mà GCD(n1,n2) = a*n1 + b*n2 và người ta tìm thêm a, b nữa. Nó có liên quan gì đến việc tìm x bên trên => giả sử GCD = 1 thì ta đang cần tìm a*n1 + b*n2 = 1 => n1 là nghịch đảo của a theo modulo n2 bất kể giá trị của b là bnh. Trùng hơp bên trên omega và m là nguyên tố cùng nhau nên GCD = 1 và ta đang cần tìm nghịch đảo của omega modulo m. 
+Dùng ơ clit mở rộng k giúp tìm nghịch đảo của omega modulo m mà giúp ước chung lớn nhất 2 số mà thôi. Ở từng bước, ta tính ra 4 giá trị a1,b1,a2,b2 => cuối cùng lấy a = a2 là kết quả. VD: nghịch đảo của 39 modulo 11 => tính theo sơ đồ trong sách. Ra nghịch đảo là ra omega^-1
+=> hiểu sai. Ơ clit mở rộng là thuật toán cho phép tìm a b thỏa mãn công thức ax+by=gcd
+
+Hướng hiểu khác của bài toán:
+Cho x*omega = 1 (mod m), omega và m nguyên tố cùng nhau, tìm x => GCD(omega, m) = 1, luôn biểu diễn được: x*omega + y*m = 1 => tìm x và y được bằng cách mod 2 vế thì x*omega = 1 (mod m) => do đó để tìm x trong công thức ban đầu cũng giống như tìm x trong công thức GCD = x*omega + y*m => dùng ơ clit mở rộng để lập ra 1 bảng sẽ giúp tính được x, y
+
+RSA: 
+Ý tưởng là phân tích 1 số lớn ra thừa số nguyên tố, độ phức tạp giống Knapsack, cũng NP hard phải duyệt trâu. 
+Hàm sinh mã: Y = X^e +- k*n hay X^e mod n
+Hàm giải mã: X = Y^d +- k*n hay Y^d mod n
+Để 2 hàm này hoạt động thì cơ chế nó phải ngược nhau, tức X^(ed) = X +- k*n hay X^(ed)=X vì (X^e mod n)^d mod n = X^(ed) mod n = X mới chuẩn. 
+Qua nhiều tính toán phức tạp thì nó rút ra là phải xây dựng cặp số ed này thì nó tính ra rằng: d = e^-1 +- k*Phi(n) với Phi(n) là hàm số trả ra số lượng các số từ 1->n-1 mà nguyên tố cùng nhau vói n, or d*e=1(mod m). Nếu biết cách phân tích thừa số nguyên tố của n. VD: n = p*q thì Phi(n)=(q - 1)(p - 1) và nếu biết trước e có thể tính được d từ công thức trên. Và xây được ed thỏa mãn X^(ed) = X +- n, còn nếu không biết các phân tích thừa số của n để tính Phi(n) thì rất khó và phải duyệt trâu đụng NP-hard. => hay
+
+Cơ chế chi tiết: 
+A chọn trước p và q rồi tính n = p x q và m=Phi(n) = (p-1)(q-1) -> chọn e sao cho GCD(e,m) = 1 -> tìm d sao cho e*d = 1 (mod m) bằng ơ clit như phần trên. 
+Public key: (e,n)
+Private key: (d, p, q) 
+B gửi tin cho A thì gửi đi Y = X^e+-kn
+A nhận và giải mã với Y^d+-kn
+
+Cơ chế chọn: n thg là 1024 bits, p và q k quá nhỏ và cùng độ dài nên cùng 512 bits là ổn. Thg sẽ chọn p, q lớn r giảm dần, có nhiều pp về thống kê như Rabin Mile test để dùng nó. 
+
+n có ý nghĩa gì: thực tế RSA là phép lấy lũy thừa đồng dư tức là X^e mod n để tạo ra cipher text và Y^d mod n để tạo ra plaintext. Vc dùng mod n tức là ta đang giới hạn độ lớn. Text hay khóa đều k thể lớn quá n được. VD ta muốn mã hóa 1 đoạn xâu nhị phân sẽ phải bẻ ra nhiều đoạn có độ dài là u bit nhưng giá trị kbh được >= n, tức 2^u < n
+Về mặt toán học, n có ý nghĩa là số mà ta cần phân tích ra thừa số nguyên tố và n = p*q với p, q là số nguyên tố. Nếu đã biết p, q thì bài toán ra luôn. Nhưng số khó phân tích ra thừa số nguyên tố là những số có độ lớn xấp xỉ nhau nên ta thg chọn p, q ngang nhau trong RSA. Trong công thức Y = X^e +- kn thì làm v là để giá trị cuối X^e là 1 số luôn nhỏ hơn n
+
+Ý nghĩa của e: 
+e là số mũ trong công thức mã hóa, giả định giá trị của e để tính ra d. Nếu e k được chọn cẩn thận: X^e+n có thể lại ra chính X thì k ổn. Nên (e,n) là khóa công khai
+e và phi(n) phải là nguyên tố cùng nhau vì e*d = 1 (mod m) => nếu e k nguyên tố cùng nhau với m thì công thức này rút gọn được e tiếp mà
+e mà nhỏ thì tốc độ cũng nhanh hơn vì tính toán mũ giảm đi. 
+
+Để tấn công RSA có 2 cách:
+Phân tích n thành thừa số nguyên tố p và q 
+Giải ra d trong X = Y^d + n khi biết bản rõ và bản mã hóa; biết bản mã hóa và e rồi đi tìm bản rõ bằng cách giải: Y = X^e+n
+=> Cách nào cũng rất mất thời gian
+
+Lỗi tấn công nếu 1 nhóm người dùng chung n và khác e:
+Hacker chỉ cần biết được 2 bản mã từ cùng 1 bản rõ là hack được r.
+Y1 = X^e1 + n
+Y2 = X^e2 + n
+=> Vì e1 và e2 cùng nguyên tố cùng nhau với n nên GCD = 1 => a*e1 + b*e2 = 1 nên kẻ thù có thể tìm được a và b từ đó nhân 2 vế với nhau là Y1^a + Y2^b = X là tìm ra bản rõ
+
+Attack model là thứ cryptographer nghĩ ra để simulate attack vào hệ thống, từ đó hiểu hơn về những lỗ hổng bảo mật có thể xảy ra trong hệ thống để cải thiện. Nó là kịch bản hay cách thức, phương hướng tấn công. 
+ 
+
+
+Bổ sung kiến thức mới: 
+Affine cipher có 312 key vì 12*26
+Trong mật mã 1 bảng thế, các khóa k được coi là như nhau vì có 1 số khóa k đem lại thay đổi nh với văn bản gốc, có 1 số khóa làm cho văn bản gốc mọi từ bị biến đổi hoàn toàn
+Trong cùng 1 nhóm tần sauast, ta k thể sử dụng quan hệ thứ tự trong phân tích giải mã vì các từ có tần suất xh như nhau thì có thể thay đổi vị trí cho nhau trong văn bản, ta k thể biết được thứ tự ưu tiên cái nào đi trước đi sau cả
+Quy luật tần suất k đồng đều chi phối mạnh mẽ hơn ở các văn bản độ dài lớn. Vì nếu văn bản độ dài nhỏ thì quy luật này đâu có tác dụng. VD từ hello thì e đâu còn chiếm tần suất cao nhất như trong quy luật nx. Nhưng 1 văn bản 1000 từ đi thì e khả năng cao sẽ có tần suất cao nhất
+Bảng mã đồng âm làm các từ có tần suất lớn sẽ bị chia tần suát ra thành nhiều từ hơn và trở nên đồng đều nhưng mã sẽ có dư thừa vì nhiều ký tự khác xh chỉ để bd 1 ký tự
+IC của 1 văn bản là xác suất sự kiện: lấy ngẫu nhiên ký tự từ văn bản đó là giống nhau. IC giảm dần khi mã hóa tăng dần lượng bản thế. Càng giảm càng mã hóa tốt vì ký tự phân bố đồng đều hơn. 
+Onetimepad old k tốt vì key k ngẫu nhiên nữa
+Tránh nhầm block size và key size nó liên quan đến cái block cipher gốc chứ k liên quan gì đến Sbox, Sbox của DES có 4 bit 1 cột thôi, 4 hàng luôn
+Cấu trúc Sbox dễ hiểu r. Thuộc tính của Sbox có 3 cái: output k tuyến tính với input; input đổi 1 bit thì output đổi ít nhất 2 bit; Khi 1 bit vào cố định, 5 bits còn lại đổi thì số bit 0 và 1 ở đầu ra luôn ở mức cân bằng (cản phân tích thống kê)
+Khi p ~ q thì có thể đảm bảo thời gian kẻ tấn công thực hiện phân tích thừa số nguyên tố cho n là lớn nhất = Phi(n^(1/2)/logn) phép thử
+Độ dư thừa của 1 ngôn ngữ là phần text thừa k cần tới cũng có thể đoán được ngôn ngữ đó muốn diễn đạt điều gì. Nó ảnh hưởng tới độ an toàn của 1 hệ mật mã vì nó là thước đo của tính cấu trúc và tính dễ đoán của ngôn ngữ, 1 nguồn phát tin thực sự ngẫu nhiên sẽ k có dư thừa.
+DES = (IP^-1) . F16 . T . F15 . ... . F2 . T . F1 . (IP)
+DES^-1 = (IP^-1) . F1 . T . F2 . ... . F15 . T . F16 . (IP) 
+=> ngược nhau vì mỗi hàm f có tính involution
+DES có 2 điểm yếu là tính bù và khóa yếu:
+- Tính bù: Y = DESz(X) thì Y' = DESz'(x') => tính biết 1 thì biết cả 2 tức là khi đó kẻ địch có thể loại bỏ 1 nửa số khóa phải thử sai khi giải mã vét cạn
+- Khóa yếu: Có 1 số khóa yếu làm cho thuật toán sinh ra 16 khóa con giống hệt nhau. 
+Chú ý tc: ECB lộ rất rõ, khi đổi thứ tự ciphertext sẽ đổi thứ tự plaintext y chang. Nên họ k recommended dùng khi cần encrypt > 1 block of data, thg dùng trong database thôi
+Chú ý tc: CBC nó dùng ciphertext xor với message ban đầu rồi mới đi qua thuật toán mã hóa
+
+
+
+
+
+
+Các kiến thức cần học thuộc lòng:
+I: e
+II: t a o i  n s h r
+III: d, l
+IV: c u m w f g y p b
+V: v k j x q z
+
+d = R - r với R = log2A với A là kích thước bảng chữ
+N0 = log2E/d
+
+e*d=1 (mod m) <=> d = e^-1 (mod m) và hiển nhiên GCD(e,m) = 1
+
+n1 n2 r q a1 b1 a2 b2
+n1 = n2*p + r
+t = a2
+a2 = a1 - q*a2
+a1 = t
+t = b2
+b2 = b1 - q*b2
+b1 = t
+=> Giải a*n1 + b*n2 = 1 thì a = a2, b = b2
+
+
+
+
+Giải câu 9:
+a) n = 77
+m = 60
+(e,n) = (7,77) là khóa công khai
+60 7 4 8 1 0 0 1
+7 4 3 1 0 1 1 -8
+4 3 1 1 1 -8 -1 9
+3 1 0 3 -1 x 2 x
+tức a = 2 => d = 2
+=> Kệ mẹ bảng, dùng youtube ra d = 43 => ok
+Y = 2^7 (mod 77) = 51 (mod 77)
+X = 51^43 (mod 77) = 60
+b) Mã là 51
+c) 2^43 mod(60) tính ra ez
+d) khi giá trị tin > 77; Mỗi khối có 2^u <= 77 => u = 6 bit; Nhược điểm là 1 số loại key không che được bản mã thực => chả hiểu nhược điểm gì nx
+10) 
+a) có
+b) chọn m = 37, omega = 23 nguyên tố cùng nhau với m 
+=> a = a'*omega (mod m) = 32, 4, 22, 7
+c) 1,0,1,1 => chú ý nó éo phải nhân 2 vector nhé
+T = 61
+d) nghịch đảo của 23 mod 37 là 29
+29 * 61 = 1769 (mod m) = 30 = a'xX (mod 37)
+=> 30 = 18x1 + 9x1 + 5x0 + 3x1 dùng tham lam là ra 1011 ngay => phép nhân ở đây là nó đang perform kiểu này

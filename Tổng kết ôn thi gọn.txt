@@ -1,0 +1,42 @@
+Confidentiality - snooping - passive wiretapping, Integrity - modification - active wire tapping, Availability;
+Disclosure, deception, disruption, usurpation;
+Policy and mechanism;
+Vulnerability, threat, attack, control;
+Attack model;
+Operational issue, human issue;
+MITM; Repudiation of origin và denial of receipt; Denial of service;
+Assurance;
+Security life cycle;
+
+Crypto, cryptographer, cryptology, cryptanalysis, cryptography;
+Cryptography --- Symmetric Cryptography --- Stream cipher: Shift cipher -> multiplicative cipher / affine cipher -> mono-alphabetical (substitution) cipher -> Vigenere cipher -> one tim pad cipher
+                                        --- Block cipher: Basic -> Lucifer -> DES -> 2 DES / 3 DES -> AES
+                                              --- Encryption mode: ECB -> CBC -> CFB -> OFB -> CTR
+             --- Asymmtric Cryptography --- f 1 chiều có cửa bẫy -> Knapsack -> RSA
+Frequency analysis;
+One timepad old and onetime pad now; 
+Bảng mã thế đồng âm, poly alphabetic substitution cipher; 
+Insecure và secure; 
+Breaking cipher condition; 
+Ciphertext only attack, known plaintext attack, chosen plaintext attack, chosen ciphertext attack, both adaptive;
+Unconditional security, provable security, computational security, ad hoc security;
+Bí mật tuyệt đối Shannon; Đánh giá mức độ bảo mật của 1 cipher; 
+
+Mã hoán vị cột;
+Block cipher, schedular alg, hàm đối hợp; Vòng lặp hàm f;
+Confusion - substitution, diffusion - transportation + permutation;
+Lucifer, DES;
+Thuật toán sinh khóa con, thuật toán mã hóa dùng subkey, Sbox; 
+DES-DES, DES1-DES2-DES1; 
+AES;
+ECB, CBC, CFB, OFB, CTR; 
+
+Public key cryptography;
+Knapsack problem, vector siêu tăng, extended ơ clit, merkle hellman;
+RSA và cách dùng, cơ chê chọn n p q, tấn công RSA, lỗi tấn công RSA;
+Thư mục khóa công khai;
+Combination of PKC và SKC;
+Tính exponential mod lớn; 
+Digital signature, non-repudition;
+
+

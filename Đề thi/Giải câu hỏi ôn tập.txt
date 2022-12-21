@@ -1,0 +1,17 @@
+Giải đề:
+Câu 2:
+1) K là số lẻ. Vì e cần nhỏ nhất nên đặt k = 1 đi
+=> p, q chọn từ 11 đến 21 thì chọn 11 với 12 => 132 = n => m = 10*11 = 110 => e là nguyên tố cùng nhau với 110 và nhỏ nhất thì chọn 3
+2) => d = 37
+3) N mod 16 = 4 = 00000100
+XOR với nó thành 
+=> Kinh nghiệm khi gặp bài này ta nên nhìn trước đoạn plain text cần mã hóa, ta sẽ đỡ phải tách ra làm nhiều bit
+
+1) k = 1
+2) p, q chọn sao cho n > 2^8 đi thì chọn 19 13 => n = 247 => m = 216 => chọn e = 5
+3) d = 173
+4) N mod 16 = 6 = 00000111 => plaintext = 00010001 XOR 00000111 = 00010110 = 22
+22^5 (mod 247) = 224 => giải mã 224^173 (mod 247) = 22
+=> mé nó ngáo đá nhầm m và n, là mod n chứ éo phải mod m ạ
+5) để gửi an toàn và xác thực. Ta lấy public key mã hóa nó rồi gửi đi thôi.
+
