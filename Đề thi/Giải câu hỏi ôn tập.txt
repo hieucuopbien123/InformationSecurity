@@ -7,11 +7,42 @@ Câu 2:
 XOR với nó thành 
 => Kinh nghiệm khi gặp bài này ta nên nhìn trước đoạn plain text cần mã hóa, ta sẽ đỡ phải tách ra làm nhiều bit
 
+Giải lại C2:
 1) k = 1
 2) p, q chọn sao cho n > 2^8 đi thì chọn 19 13 => n = 247 => m = 216 => chọn e = 5
 3) d = 173
 4) N mod 16 = 6 = 00000111 => plaintext = 00010001 XOR 00000111 = 00010110 = 22
 22^5 (mod 247) = 224 => giải mã 224^173 (mod 247) = 22
-=> mé nó ngáo đá nhầm m và n, là mod n chứ éo phải mod m ạ
+=> mé nó ngáo đá nhầm m và n. Trong công thức tìm d thì dùng mod m, trong mọi công thức khác dùng mod n.
 5) để gửi an toàn và xác thực. Ta lấy public key mã hóa nó rồi gửi đi thôi.
+
+
+
+Giải câu 9 Câu hỏi ôn tập:
+a) n = 77
+m = 60
+(e,n) = (7,77) là khóa công khai
+60 7 4 8 1 0 0 1
+7 4 3 1 0 1 1 -8
+4 3 1 1 1 -8 -1 9
+3 1 0 3 -1 x 2 -17
+tức a = 2 => d = 2
+=> Kệ mẹ bảng, dùng youtube ra d = 43 => ok => bảng vẫn đúng
+=> Cái bảng phải chú ý lấy a2 hay b2 tùy vào giá trị ta đang lấy là 7 hay 60; nếu ra -17 chẳng hạn nhưng mode ta lấy là 60 nên -17+60 = 43
+Y = 2^7 (mod 77) = 51 (mod 77)
+X = 51^43 (mod 77) = 60
+b) Mã là 51
+c) 2^43 mod(77) tính ra ez
+d) khi giá trị tin >= 77; Mỗi khối có 2^u < 77 => u = 6 bit; Nhược điểm là 1 số loại key không che được bản mã thực => chả hiểu nhược điểm gì nx
+Ký riêng biệt nên đang dùng là ECB, nhược điểm là có thể xuất hiện các pattern trùng nhau trong output nếu input trùng nhau và hacker có thể lợi dụng để làm giả thông tin truyền đi
+10) 
+a) có
+b) chọn m = 37, omega = 23 nguyên tố cùng nhau với m 
+=> a = a'*omega (mod m) = 32, 4, 22, 7
+c) 1,0,1,1 => chú ý nó éo phải nhân 2 vector nhé
+T = 61
+d) nghịch đảo của 23 mod 37 là 29
+29 * 61 = 1769 (mod m) = 30 = a'xX (mod 37)
+=> 30 = 18x1 + 9x1 + 5x0 + 3x1 dùng tham lam là ra 1011 ngay => phép nhân ở đây là nó đang perform kiểu này
+
 

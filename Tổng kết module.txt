@@ -20,7 +20,7 @@ Availability => VD ddos làm mất tính availability
 
 # Cipher
 -> Mật mã nào bảo tồn nguyên vẹn quy luật thống kê nào đó thì nó k tốt. 1 mật mã tốt phải không bảo tồn các quy luật hiện có của ngôn ngữ tự nhiên và phải ngẫu nhiên, k theo quy luật nào và k thể đoán trước. 
-Vd: Vigenere cipher rất random 1-1 và đồ thị tần suất bằng phẳng rất tốt nhưng vẫn có thể bị phá vỡ.
+Vd: Vigenere cipher rất random 1-1 và đồ thị tần suất bằng phẳng rất tốt nhưng vẫn có thể bị phá vỡ vì thực tế quy luạt thống kê của ngôn ngữ tự nhiên vẫn tồn tại, k hoàn toàn random.
 
 -> Vegenere Cipher: Cơ chế rất đơn giản
 Plaintext X = (x1x2...xn)
@@ -35,7 +35,7 @@ Từ đó người ta cứ tìm greatest common repeated pattern để mò ra. H
 
 -> Onetime pad:
 Cơ chế tương tự nhưng an toàn hơn: 2 bên cùng thống nhất 1 khóa, khóa được sinh ra random, khóa chỉ dùng 1 lần r vứt, khóa dài có độ dài bằng lượng ký tự và được sinh random => khó áp dụng trong thực tiễn
-Có 1 giải pháp thiết thực hơn. VD: họ random generate 10000 ký tự và mỗi lần sử dụng sẽ cắt 100 ký tự ra để mã hóa và giải mã. Tức dùng được 100 lần là hết thì bỏ. Kiểu này khá an toàn trừ khi lộ cục 10000 ký tự kia
+Có 1 giải pháp thiết thực hơn. VD: họ random generate 10000 ký tự và mỗi lần sử dụng sẽ cắt 100 ký tự ra để mã hóa và giải mã. Tức dùng được 100 lần là hết thì bỏ. Kiểu này khá an toàn trừ khi lộ cục 10000 ký tự kia, nó có vai trò là secret key nhưng dung lượng lớn thế khó mà truyền nhận.
 
 -> Block cipher:
 Là sử dụng 1 bảng số binary. Mỗi block chứa 1 lượng bit nhất định, càng lớn càng an toàn. Bảng này được sinh ra hoàn toàn ngẫu nhiên.
@@ -45,16 +45,16 @@ Nếu lộ bảng thì n càng lớn sẽ càng khó giải ngược lại.
 Với 1 fixed key và n bit plain text cho ra n bit ciphertext, nó là 1 hàm bijection invertible
 Block size phải đủ lớn để cản statistical analysis(kiểu giải mã bằng phân tích thống kê)
 
-DES(Data Encryption Standard) là 1 PP mật mã hóa được chọn làm chuẩn chính thức dùng rộng rãi trên thế giới. Nó k đủ an toàn cho nhiều ứng dụng vì độ dài 56 bit của khóa là quá nhỏ. Nó được bắt nguồn từ Lucifer nhưng yếu hơn vì ít bit hơn. Cơ quan Hoa Kỳ cố tình tạo ra nó và dùng làm chuẩn cho nước Mỹ và được cả thế giới dùng theo. Để phá được phải có máy tính đủ hiện đại và sẽ duyệt hết trong < 24h. Tuy nhiên 1 người bth k thể nào có cái máy tính hiện đại như v để làm điều đó. Người dân dùng nó sẽ có thể an toàn cho họ vì họ k có tiềm lực để phá mã nhưng chính phủ Mỹ nếu muốn xem thông tin vẫn có thể phá khóa nếu họ muốn bằng siêu máy tính để kiểm soát.
+--> DES(Data Encryption Standard) là 1 PP mật mã hóa được chọn làm chuẩn chính thức dùng rộng rãi trên thế giới. Nó k đủ an toàn cho nhiều ứng dụng vì độ dài 56 bit của khóa là quá nhỏ. Nó được bắt nguồn từ Lucifer nhưng yếu hơn vì ít bit hơn. Cơ quan Hoa Kỳ cố tình tạo ra nó và dùng làm chuẩn cho nước Mỹ và được cả thế giới dùng theo. Để phá được phải có máy tính đủ hiện đại và sẽ duyệt hết trong < 24h. Tuy nhiên 1 người bth k thể nào có cái máy tính hiện đại như v để làm điều đó. Người dân dùng nó sẽ có thể an toàn cho họ vì họ k có tiềm lực để phá mã nhưng chính phủ Mỹ nếu muốn xem thông tin vẫn có thể phá khóa nếu họ muốn bằng siêu máy tính để kiểm soát.
 
--> S box dùng cho DES mã hóa hàm f
+---> S box dùng cho DES mã hóa hàm f
 Theo ví dụ trong slide, S box có (16!)^4 possible vì 1 row có 16! cách xếp => là số lượng cách tạo ra 4 rows. 1 rows k thể có 2 ô trùng giá trị nhưng các row có thể trùng nhau y hệt.
 VD bảng trong slide C3: 100110 
 Lấy left control là 1, right control bit là 0 => hàng 10
 4 bit ở giữa là 0011 => cột 0011 -> mã hóa ra 4 bit
 => Bảng được sinh ra ngẫu nhiên và dùng để mã hóa như v.
 
--> Người ta bảo DES 56 bit chưa an toàn, nếu ghép 2 cái DES 56 bit lại là được 128 bit sẽ cực kỳ an toàn => là sai. Thực tế ghép 2 cái DES 56 bit chỉ tăng độ phức tạp lên thành 57:
+---> Người ta bảo DES 56 bit chưa an toàn, nếu ghép 2 cái DES 56 bit lại là được 128 bit sẽ cực kỳ an toàn => là sai. Thực tế ghép 2 cái DES 56 bit chỉ tăng độ phức tạp lên thành 57:
 [DES1 56 bit] + [DES2 56 bit] => vì giải ra cái DES1 mất 2^56 phép thử sai, sau khi tìm được output phù hợp với cái DES2 thì giải tiếp cái 2 mất 2^56 là thành 2^57 => 2 cái DES rời rạc và k liên qua gì đến nhau
 Nhưng nếu ghép 3 cái DES lại sẽ thành 2^128 ngay: [DES1 56bit][DES2 56bit][DES1 56bit] vì tìm cái 1 mất 2^56 mới ra cái phù hợp với DES2, sau đó tìm xong DES2 lại phải check có phù hợp ngược với cái DES1 ban đầu k, nếu k lại phải tìm lại từ đâu => éo hiểu lắm
 
@@ -63,9 +63,17 @@ Thực tế k có ngẫu nhiên mà chỉ có giả ngẫu nhiên. Vd 1 cách m�
 
 ECB là PP lập ra 1 bảng từ nào đi với dãy số nào và thay thế. Cơ chế khá giống bên trên dù quyển sách 1 từ có thể ở nhiều trang khác nhau nên ít bị trùng. ECB cũng v nhưng chính vì k được random hoàn toàn nên vẫn có thể có ký từ trùng trong đoạn đã mã hóa. Nếu hacker tách từng cục ra rồi lấy dictionary các từ phổ biến sẽ tìm thấy các pattern trùng lặp và vẫn có thể phát hiện ra
 
--> CBC là PP mã hóa cải tiến hơn vì ngoài lập bảng lập bảng, còn nó chơi kiểu từ sau phụ thuộc thêm vào từ trước nữa. 
+-> CBC là PP mã hóa cải tiến hơn vì ngoài lập bảng, còn nó chơi kiểu từ sau phụ thuộc thêm vào từ trước nữa. 
 Dù an toàn hơn và tránh được pattern trùng cực kỳ mạnh nhưng nếu truyền tin bị sai 1 bit, sẽ sai cả dãy mã hóa luôn. Nó cũng chỉ cho xử lý tuần tự chứ k được giải mã song song từng phần của message nên thời gian chạy khá lâu. 
 
 CTR và OFB là 2 thuật mã hóa có tiền xử lý. Ngoài ra còn có CFB.
+
+
+
+# Tính số mũ cực lớn:
+Dùng fermat để rút gọn -> phân tích phần mũ theo cấp giai thừa
+VD: Tính 976^3532 mod 11413
+Do 3532 max là 2^11 nên tính 976^2, 976^4, 976^8,..., 976^2048 chứa cả mod thì tính rất dễ do cái sau bằng cái trước mũ 2 (mod 11413)
+Phân tích 3532 = 2^2 + 2^3 + 2^6 + 2^7 + 2^8 + 2^10 + 2^11 và nhân các cục vừa tính bên trên tương ứng lại và mod 11413 liên tục.
 
 
