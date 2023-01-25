@@ -77,3 +77,15 @@ Do 3532 max là 2^11 nên tính 976^2, 976^4, 976^8,..., 976^2048 chứa cả mo
 Phân tích 3532 = 2^2 + 2^3 + 2^6 + 2^7 + 2^8 + 2^10 + 2^11 và nhân các cục vừa tính bên trên tương ứng lại và mod 11413 liên tục.
 
 
+
+# Tìm nghịch đảo modulo
+Cách trong sách ok nhưng phải + lượng mod lên nếu ra số âm và chú ý giá trị cần tìm là a2 hay b2 tùy TH
+
+Cách khác. VD: tìm 27^(-1) mod 392
+392 = 27*14 + 14 => 392 + 27*(-14) = 14
+27 = 14*1 + 14 => 27 + 14*(-1) = 13
+14 = 13*1 + 1 => 14 + 13*(-1) = 1 => thế từ dần vào đây bằng cách PT bên trên
+-> 14 + 27*(-1) + 14 = 1 => 2*14 + 27*(-1) = 1 => 2*[392 + 27*(-14)] + 27*(-1) = 1 
+=> 2*392 + 27*(-29) = 1 => 392 - 29 = 363 là kết quả
+
+
