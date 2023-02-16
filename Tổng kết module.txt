@@ -76,6 +76,10 @@ VD: Tính 976^3532 mod 11413
 Do 3532 max là 2^11 nên tính 976^2, 976^4, 976^8,..., 976^2048 chứa cả mod thì tính rất dễ do cái sau bằng cái trước mũ 2 (mod 11413)
 Phân tích 3532 = 2^2 + 2^3 + 2^6 + 2^7 + 2^8 + 2^10 + 2^11 và nhân các cục vừa tính bên trên tương ứng lại và mod 11413 liên tục.
 
+-> Định lý Euler:
+Fermat: p nguyên tố và a < p thì a^(p-1) mod p = 1
+Euler: a^x (mod y) = 1 với y bất kỳ nếu x là số lượng các số nguyên tố cùng nhau với y và > 1 và <= y. TH y nguyên tố thì số lượng x là y - 1 vì chỉ có y nguyên tố cùng nhau với chỉnh nó thôi 
+
 
 
 # Tìm nghịch đảo modulo
