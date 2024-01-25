@@ -1,0 +1,473 @@
+1) Overview:
+1.1)
+Các PP security: Username/Password static, Username/Password aging, SSHKey for terminal, One Time Password (OTP), Soft Tokens
+
+Token card (thẻ token) và soft tokens là hai công cụ được sử dụng trong xác thực hai yếu tố (2FA) để tăng cường bảo mật.
+- Token card: Đây là một thiết bị vật lý nhỏ, thường có một màn hình hiển thị một chuỗi số động. Chuỗi số này thay đổi sau mỗi khoảng thời gian nhất định (thường là 60 giây) và được sử dụng cùng với tên người dùng và mật khẩu để đăng nhập vào hệ thống. Ví dụ về thẻ token là RSA SecureID.
+- Soft tokens: Đây là phiên bản số hóa của thẻ token. Thay vì sử dụng một thiết bị vật lý, soft token là một ứng dụng hoặc phần mềm được cài đặt trên thiết bị di động hoặc máy tính của người dùng. Nó cũng tạo ra một chuỗi số động được sử dụng để xác thực. Ví dụ về soft token là Google Authenticator hoặc Microsoft Authenticator.
+
+3 thuộc tính của info security:
+Confidentiality: tránh lộ thông tin qtr cho những người k có quyền
+Integrity: tránh thông tin bị thay đổi bởi người k có quyền
+Availability
+
+Information state: process, storage, transmission
+
+Security measure: Policy, technology, education and training
+
+1.2) 
+Network security tương tự nhưng liên quan tới truyền qua mạng. 
+Chỉ cần nhớ có 3 phần: authen bạn là ai, authorization là bạn có thể làm gì, accounting =>  Mô hình AAA - một khung quan trọng để quản lý truy cập và bảo mật mạng.
+"Accounting" là quá trình ghi lại các hoạt động của người dùng trên mạng. Nó cung cấp thông tin chi tiết về những gì người dùng đã làm, bao gồm thời gian đăng nhập và đăng xuất, các dịch vụ mà họ đã sử dụng, dữ liệu mà họ đã truy cập, và các hành động khác mà họ đã thực hiện. Thông tin thu thập từ quá trình Accounting có thể được sử dụng cho nhiều mục đích, bao gồm việc phân tích hành vi, kiểm tra bảo mật, và quản lý tài nguyên mạng.
+
+1.3) 
+Cyber Dependent Crimes và Cyber Enabled Crimes là hai loại tội phạm mạng khác nhau:
+1. Cyber Dependent Crimes: Đây là các tội phạm mà không thể thực hiện mà không có sự hỗ trợ của công nghệ mạng. Chúng hoàn toàn phụ thuộc vào mạng và không thể tồn tại ngoài môi trường kỹ thuật số. Ví dụ về tội phạm phụ thuộc vào mạng bao gồm tấn công DDoS, việc tạo và phân phối phần mềm độc hại như virus, worm, trojan, ransomware, và các hình thức tấn công khác như SQL injection, Cross-Site Scripting (XSS).
+2. Cyber Enabled Crimes: Đây là các tội phạm truyền thống có thể được thực hiện mà không cần công nghệ, nhưng công nghệ mạng đã làm cho chúng trở nên dễ dàng hơn, nhanh chóng hơn, và thường có thể thực hiện trên quy mô lớn hơn. Ví dụ về tội phạm được kích hoạt bởi mạng bao gồm lừa đảo, rửa tiền, buôn bán hàng giả, và tội phạm liên quan đến bản quyền.
+
+Dưới đây là sự phân biệt giữa các loại phần mềm độc hại (malware):
+1. Virus: Là một loại phần mềm độc hại có khả năng tự sao chép và lây nhiễm sang các tệp khác trên cùng một máy tính. Virus thường được gắn vào các tệp thực thi và kích hoạt khi tệp đó được mở.
+2. Trojans: Được đặt tên theo con ngựa Trojan trong thần thoại Hy Lạp, đây là loại phần mềm độc hại giả mạo như một ứng dụng hợp lệ. Mục đích của nó là lừa người dùng cài đặt nó để có thể kiểm soát máy tính hoặc đánh cắp thông tin.
+3. Rootkits: Là một loại phần mềm độc hại được thiết kế để ẩn sự tồn tại của nó hoặc phần mềm độc hại khác trong hệ thống, cho phép kẻ tấn công kiểm soát máy tính mà không bị phát hiện.
+4. Worms: Là một loại phần mềm độc hại có khả năng tự sao chép và lây nhiễm từ máy tính này sang máy tính khác mà không cần tương tác của người dùng.
+5. Spyware: Là phần mềm độc hại được thiết kế để giám sát và thu thập thông tin từ máy tính mục tiêu mà không có sự đồng ý của người dùng.
+6. Crimeware: Là một loại phần mềm độc hại được thiết kế đặc biệt để thực hiện các hành vi phạm tội, như đánh cắp thông tin tài chính hoặc thực hiện tấn công DDoS.
+7. Adware: Là một loại phần mềm độc hại thường hiển thị quảng cáo không mong muốn và có thể theo dõi hành vi trực tuyến của người dùng để hiển thị quảng cáo mục tiêu.
+Ransomware: Là một loại phần mềm độc hại đặc biệt nguy hiểm, nó mã hóa dữ liệu trên máy tính của nạn nhân và yêu cầu họ phải trả tiền chuộc (thường bằng tiền điện tử như Bitcoin) để lấy lại dữ liệu. Nếu nạn nhân không trả tiền chuộc, dữ liệu có thể bị xóa vĩnh viễn hoặc bị tiết lộ công khai. Ví dụ nổi tiếng về ransomware bao gồm WannaCry và Petya.
+
+Phishing attacks (tấn công lừa đảo) là một hình thức tấn công mạng mà kẻ tấn công giả mạo một thực thể hoặc tổ chức đáng tin cậy để lừa đảo người dùng và lấy thông tin nhạy cảm như tên đăng nhập, mật khẩu, thông tin tài khoản ngân hàng hoặc thông tin thẻ tín dụng. Mục tiêu của tấn công phishing là lừa người dùng tin tưởng và cung cấp thông tin cá nhân quan trọng, từ đó kẻ tấn công có thể sử dụng thông tin này để thực hiện các hành động gian lận
+
+Kiểm định vulnerability: Có các tool scanner check bằng cách ss tài nguyên với các kiểu vulnerabilities phổ biến lưu trong database và sinh ra 1 bản report thể hiện các weakness tiềm năng
+
+Thread bao gồm cả natural disaster hoặc tấn công vật lý. 
+
+Internal threat
+External threat
+Structured threat: từ hacker high skill viết script hack
+Unstructured threat: từ các cá nhân k có high skill mà chỉ cần các hacking tool cơ bản như password cracker
+
+Passive attack và active attack
+
+Các kiểu tấn công cơ bản:
+ARP Attack: Tấn công ARP (Address Resolution Protocol) thường liên quan đến việc sử dụng giao thức ARP để giả mạo địa chỉ IP hoặc MAC, thường để chặn hoặc thay đổi thông tin trên mạng.
+Brute Force Attack: Đây là loại tấn công mà kẻ tấn công cố gắng đoán mật khẩu bằng cách thử tất cả các khả năng.
+Flooding: Tấn công Flooding là việc gửi một lượng lớn dữ liệu đến một hệ thống nhất định để làm quá tải và gây ra sự cố.
+Sniffers: Sniffers là công cụ được sử dụng để giám sát và thu thập dữ liệu trên mạng. Trong bối cảnh tấn công, chúng thường được sử dụng để đánh cắp thông tin nhạy cảm.
+Spoofing: Tấn công Spoofing liên quan đến việc giả mạo một địa chỉ IP hoặc nguồn khác để lừa dối hệ thống hoặc người dùng.
+Redirected Attacks: Trong tấn công này, kẻ tấn công thay đổi đường dẫn của người dùng đến một địa chỉ IP hoặc trang web giả mạo.
+Tunneling Attack: Tấn công này sử dụng giao thức mạng để đóng gói và truyền tải dữ liệu độc hại hoặc không hợp lệ.
+Covert Channels: Đây là một phương pháp mà kẻ tấn công sử dụng để truyền tải thông tin một cách bí mật, thường bằng cách sử dụng các phần của giao thức mạng không được sử dụng hoặc không được kiểm soát chặt chẽ.
+
+Hacker đối mặt với thử thách là phải tìm được victim vulnerable nhất
+
+2) 
+Threat agent: thứ giúp xđ điểm yếu và tấn công vào 
+Countermeasure là pp dùng để mitigate risk
+Slide 36 tổng quan các thuật ngữ của risk
+
+Probability x Severity = Exposure
+Exposure x Value of assets = Single Loss
+Single loss x Anualized rate of occurrence = Anuallized loss
+Anuallized loss trước - Anuallized loss sau khi dùng safeguard = value of safeguard 
+
+3) 
+Security policy là văn bản chỉ ra cách 1 tổ chức bảo vệ assets của họ. 
+Họ cũng phải revise policy khi có sự thay đổi công nghệ, sản phẩm mới hay level của staff
+
+Có 3 thứ trong policy:
+Trước tiên là 1 policy nêu giải pháp bảo mật chuẩn:
+Standard nêu ra các requirement thiết yếu nhất cho policy đó
+Guidelines hương dẫn giải pháp tốt nhất để đạt được policy
+Procedure nêu ra method để đạt được policy, ấn vào button, ấn phím gì
+
+Các phần tử của 1 policy
+
+4) 
+Phreaker là người khai thác lỗ hổng trong hệ thống điện thoại và mạng viễn thông để có dịch vụ free hoặc truy cập trái phép
+Spammer gửi 1 lượng lớn message, có thể dùng viruss để chiếm quyền nhiều máy tính và điều khiển các máy đó gửi message đi
+Phisher giả mạo tổ chức lừa người dùng nhập thông tin nhạy cảm vào
+
+Melissa virus là first email virus nổi tiếng gây ra quá tải trong server mail
+Morris Worm là first worm, thời điểm ra mắt nó đã tạm ngưng 10% hệ thống internet chỉ với 99 dòng code
+
+5) 
+Có nhiều loại attack:
+a) Malicious code:
+Malware là một loại phần mềm được tạo ra với mục đích gây hại hoặc xâm nhập vào hệ thống máy tính mà không được sự cho phép của người dùng. Nó bao gồm các loại virus, worm, trojan, backdoor, keystroke logger, botnet, dialer
+
+- Botnet là một mạng lưới các máy tính đã bị xâm nhập và kiểm soát từ xa bởi một người hay một tổ chức xấu. Các máy tính trong botnet, được gọi là "bots" hoặc "zombies", thường bị nhiễm malware và được điều khiển bởi một máy chủ trung tâm. Botnet thường được sử dụng để thực hiện các hoạt động độc hại như tấn công mạng phân tán (DDoS), phát tán spam, đánh cắp thông tin cá nhân hoặc thực hiện các hành động xấu khác mà không được sự cho phép của chủ sở hữu máy tính.
+- Dialer là một loại phần mềm được cài đặt trên máy tính để tự động thiết lập kết nối Internet thông qua điện thoại hoặc modem. Ban đầu, dialer được sử dụng để kết nối Internet thông qua số điện thoại bằng cách gọi vào một số điện thoại trung tâm dịch vụ Internet (ISP). Tuy nhiên, một số dialer có thể gây ra sự phiền toái hoặc lừa đảo bằng cách thiết lập kết nối không mong muốn và gây tốn phí cho người dùng, hoặc thực hiện các hành động độc hại khác như cài đặt phần mềm độc hại hoặc thu thập thông tin cá nhân.
+
+Virus là 1 phần mềm độc hại khiến cho computer thực hiện các hđ k mong muốn. Nó có thể lan sang các máy khác nhưng phải có sự can thiệp của người dùng. 
+Worm khác với virus vì k cần sự can thiệp của người dùng nên spread rất nhanh. Nó tự replicate thông qua lỗ hổng trên mạng nên cũng gây chậm network. Hacker có thể chiếm quyền điều khiển admin của máy khi bị nhiễm worm
+Trojan Horse có rất nhiều loại như trong slide, có thể xóa file hoặc chiếm quyền truy cập, vô hiệu hoát tường lửa, dừng hoạt động mạng
+
+Quá trình của kiểu attack này phải khiến người dùng phải cài đặt code của hacker và execute nó, từ đó chiếm quyền điều khiển
+
+Để cản malicious code attack, ta cần dùng anti virus software.
+Hệ thống ngăn chặn xâm nhập dựa trên máy chủ (HIPS - Host-based Intrusion Prevention System) là một loại hệ thống bảo mật được cài đặt trực tiếp trên máy chủ hoặc máy tính cá nhân để ngăn chặn và phát hiện các cuộc tấn công mạng. HIPS hoạt động bằng cách giám sát và phân tích lưu lượng mạng, hệ thống tệp và các hoạt động hệ điều hành để phát hiện các dấu hiệu của việc xâm nhập hoặc tấn công. HIPS có thể ngăn chặn các cuộc tấn công bằng cách sử dụng các quy tắc và chính sách bảo mật được định nghĩa trước, cũng như bằng cách học và thích ứng với các mô hình hành vi bình thường của hệ thống để phát hiện các hoạt động bất thường. HIPS bảo vệ OS kernel
+
+VD quá trình mitigate active worm attach qua 4 bước:
+Containment phase: Giảm sự spread của worm ra ngoài các máy khác. Cô lập các phần network, dùng tường lửa block cổng mà worm lan truyền ra
+Inoculation phase: Vá các nơi chưa bị dính worm để nó k thể dính nữa
+Quarantine phase: Remove, block các máy bị nhiễm. 
+Treatment phase: Fix các máy bị nhiễm, dừng tiến trình có worm lại hoặc remove file, reinstall system.
+
+b) Tấn công thăm dò (Reconnaissance attack) là một loại tấn công mạng mà trong đó kẻ tấn công cố gắng thu thập thông tin về hệ thống mục tiêu để sử dụng trong các cuộc tấn công sau này. Thông tin này có thể bao gồm chi tiết về hệ điều hành, phiên bản phần mềm, cấu hình mạng, và các lỗ hổng bảo mật có thể khai thác. Tấn công thăm dò thường là bước đầu tiên trong quá trình tấn công mạng, cho phép kẻ tấn công lên kế hoạch cho các cuộc tấn công sau này dựa trên thông tin thu thập được.
+
+Có nhiều PP thăm dò:
+- Ping sweep and port scan: Port scan để xác định các cổng mạng mở có thể được sử dụng để truy cập vào hệ thống, gửi message vào từng port thử. Ping sweep là ping thử để xđ dải IP tới live host.
+- Quét mạng (network scanning): Để xác định các thiết bị hoạt động trong mạng.
+- Internet information queries: thu thập thông tin từ các nguồn công cộng như DNS, Whois, nslookup, các trang web của công ty.
+- Packet sniffer là 1 phần mềm sử dụng network adapter card ở dạng promiscuous mode (hỗn tạp) để bắt mọi packet gửi vào 1 LAN. Biết được máy này nhận những gói tin gì và trả lại cái gì. Trong 1 mạng LAN, mọi máy đều có thể xem traffic của các máy trên cùng mạng 
+
+=> Để cản, ta có thể encrypt data, cấm các protocol lạ truy cập vào các thông tin bảo mật của hệ thống, tất cả các thông tin qtr k được lấy qua public site.
+
+Mặc dù không thể ngăn chặn hoàn toàn Ping Sweeps và Port Scans mà không ảnh hưởng đến khả năng mạng, nhưng ta có thể giảm thiểu thiệt hại bằng cách sử dụng các hệ thống phòng ngừa xâm nhập (IPS) ở cấp độ mạng và máy chủ. IPS có thể được cấu hình để phát hiện các mẫu hoạt động đáng ngờ và tự động thực hiện các biện pháp phòng ngừa như chặn IP nguồn hoặc cảnh báo người quản trị hệ thống. Tuy nhiên, việc triển khai IPS cần được thực hiện cẩn thận để đảm bảo rằng nó không gây ảnh hưởng đến khả năng mạng và hoạt động bình thường của hệ thống, chặn nhầm truy cập hợp lệ
+
+Để cản packet sniffer: dùng authen, dùng mã hóa (là tốt nhất để cản MITM), dùng anti-sniffer tool với cơ chế là detect sự thay đổi trong response time để biết gói tin có bị lâu hơn không để biết khả năng gói tin đã bị sniffer ở giữa, switched network là mạng sẽ gửi gói tin đến ngay đích cuối dựa vào địa chỉ MAC làm giảm khả năng bị packet sniffer bắt bởi các máy khác. 
+
+c) Access Attacks
+Dùng lỗ hổng trong qtr authen để lấy quyền access vào. Có nhiều loại:
+Password attack: brute force, trojan horse, package sniffer
+Trust exploitation: Lợi dụng sự tin cậy giữa 2 hay nhiều hệ thống để thực hiện tấn công. VD hệ thống A xác thực cho user, hệ thống B tin tưởng hệ thống A thì user đó k cần xác thực lại ở hệ thống B nữa mà lấy luôn token từ hệ thống A. Hacker có thể VD pass-the-hash để lấy được hash của mk từ 1 hệ thống bị xâm nhập để giả mạo tiếp trên hệ thống khác. 
+Port redirection: Tấn công chuyển hướng cổng (Port Redirection Attack) là một loại tấn công mạng trong đó kẻ tấn công sử dụng một máy chủ đã bị xâm nhập để chuyển hướng lưu lượng mạng qua cổng mạng cụ thể, thường là để vượt qua các quy tắc của tường lửa. Ví dụ, nếu tường lửa được cấu hình để chỉ cho phép lưu lượng mạng từ cổng 80 (HTTP), kẻ tấn công có thể sử dụng tấn công chuyển hướng cổng để chuyển hướng lưu lượng mạng độc hại qua cổng 80, khiến tường lửa nghĩ rằng đó chỉ là lưu lượng web bình thường.
+MITM
+
+=> Để cản password attack: dùng OTP 2FA, disable acc có quá nh lần login unsuccessful (khi đó thì username cũng phải k bị lộ), strong password
+Để cản trust exploitation, ta k để cho máy trong tường lửa tin 1 system ngoài tường lửa (external), tất cả các kiểu login ở ngoài vẫn phải đi qua 1 identity server của ta nữa chẳng hạn
+
+d) DDoS: Cơ chế là cố dùng hết resources để những người khác k thể dùng được resources nữa. 
+Có vô số loại, ta chỉ xét vài loại:
+- DoS - Buffer Overflow Attack: Cứ gửi nhiều đến mức tràn bộ nhớ
+- DoS - SYN Flood Attack: Tấn công DoS - SYN Flood là một loại tấn công mạng mà kẻ tấn công gửi một số lượng lớn yêu cầu kết nối SYN (Synchronize) tới một máy chủ mục tiêu. Mục đích của tấn công này là làm cho máy chủ không thể xử lý được tất cả các yêu cầu kết nối và dẫn đến quá tải hệ thống.
+Trong một tấn công SYN Flood, kẻ tấn công gửi một loạt các gói tin SYN tới máy chủ mục tiêu mà không hoàn thành quá trình bắt tay (handshake) để thiết lập kết nối. Khi máy chủ nhận được yêu cầu kết nối SYN, nó sẽ gửi lại một gói tin SYN-ACK để xác nhận yêu cầu. Tuy nhiên, trong tấn công SYN Flood, kẻ tấn công không gửi gói tin ACK để hoàn thành quá trình bắt tay, làm cho máy chủ phải chờ đợi một khoảng thời gian để hết thời gian chờ và giải phóng tài nguyên. Khi số lượng yêu cầu kết nối SYN tăng lên đáng kể, máy chủ sẽ không đủ tài nguyên để xử lý tất cả các yêu cầu và sẽ trở nên quá tải.
+Để bảo vệ chống lại tấn công SYN Flood, các biện pháp bao gồm cấu hình tường lửa để chặn các yêu cầu kết nối SYN độc hại, sử dụng các thiết bị chuyển mạch thông minh để phân phối tải và giới hạn số lượng yêu cầu kết nối SYN đến máy chủ.
+- DoS - Teardrop Attack: Gửi giá trị ảo để IP protocol k thể nối các fragment lại trong gói tin lớn. Vì bth nó có cơ chế phân mảnh và ghép lại gói tin lớn.
+- DoS - Smurf Attack: Hacker sử dụng phần mềm để gửi gói tin ping với địa chỉ người gửi custom tùy ý là victim muốn tấn công. Các gói tin IP gửi đi thì các máy đích sẽ gửi lại ICMP reply về địa chỉ source là victim, 1 lượng lớn sẽ làm quá tải victim. Hoặc nếu server đó bảo mật bằng cách chặn khi có quá nhiều gói tin vô tri gửi tới, thì nó vô tình chặn nhầm người.
+- DoS - DNS Attacks: làm quá tải DNS server
+- DoS - Email Attacks: Hack quá tải hệ thống mail. Bằng cách gửi lượng spam lớn hoặc dùng kiểu virus ép máy victim gửi mail liên tục
+- DoS - Physical Infrastructure Attacks: 
+- DoS - Viruses/Worms
+
+Pb: 
+- Tấn công DoS là khi kẻ tấn công sử dụng một máy tính hoặc một số máy tính để gửi một lượng lớn yêu cầu đến một dịch vụ hoặc hệ thống mạng. Mục tiêu của tấn công này là làm cho dịch vụ hoặc hệ thống không thể xử lý tất cả các yêu cầu và trở nên không khả dụng đối với người dùng hợp lệ. Tấn công DoS thường được thực hiện bằng cách gửi yêu cầu ping, yêu cầu HTTP, hoặc yêu cầu khác đến một máy chủ hoặc một dịch vụ mạng.
+- Tấn công DDoS thì cụ thể hơn là một biến thể của tấn công DoS, trong đó kẻ tấn công sử dụng một mạng lưới các máy tính đã bị xâm nhập (botnet) để gửi yêu cầu đến một mục tiêu. Mạng lưới các máy tính này được kiểm soát từ xa bởi kẻ tấn công và được sử dụng để tăng cường sức mạnh tấn công. Với tấn công DDoS, kẻ tấn công có thể gửi hàng triệu yêu cầu từ nhiều địa chỉ IP khác nhau cùng một lúc, làm cho mục tiêu trở nên quá tải và không khả dụng. Phạm vi tấn công thường lớn hơn.
+
+=> Để cản DoS, config anti-DoS trên router or firewall là 1 cách cản DoS, nó cũng tự động limit lượng TCP half-open connection 
+
+Giới hạn tốc độ lưu lượng mạng (traffic rate limiting) ở mức ISP là một phương pháp hiệu quả để ngăn chặn DoS.
+Khi một tấn công DoS xảy ra, kẻ tấn công cố gắng gửi một lượng lớn yêu cầu đến mục tiêu của họ. Tuy nhiên, nếu mục tiêu đó đã thiết lập giới hạn tốc độ lưu lượng mạng, thì chỉ có một lượng nhất định yêu cầu có thể được xử lý trong một khoảng thời gian cụ thể. Các yêu cầu quá mức sẽ bị từ chối hoặc bị trì hoãn, giúp bảo vệ hệ thống hoặc dịch vụ khỏi quá tải. Các dịch vụ khác vẫn sử dụng được bth vì lượng max tài nguyên dành cho các dịch vụ khác k đổi.
+
+
+Có nhiều kiểu tấn công khác như: 
+Social Engineering Attacks: Hacker nói chuyện để lừa người dùng lộ thông tin qtr
+Ping of death: Gửi gói tin ICMP or IP lớn hơn max packet size có thể crash system, tràn bộ đệm. Hầu hết các hệ thống hiện đại đã cập nhật để chặn loại tấn công này.
+
+IP Spoofing
+=> Để cản, set trong router và firewall có anti-spoof feature. Nó giúp tự động filter access list, tìm nguồn ip routing thực sự để block ip hacker thực sự. Encryption và authentication thêm.
+
+=> Các biện pháp khác: keep up to date app, đóng các dịch vụ or port k dùng, đổi password định kỳ, mã hóa password là must-have ở mọi system, mã hóa ổ cứng với bit-locker, kiểm soát firewall IPS VPN antivirus app.
+
+6) 
+Có vô số kiểu social engineering attack, từ gọi điện nhắn tin, giả danh, để lại usb chứa mã độc, xem camera theo dõi password được gõ,....
+Với các kiểu gọi điện ta nên hỏi lại đối phương các thông tin mà họ nên biết, nếu trả lời ấp úng thì rất có thể là attacker, đồng thời là người hỏi, vị thế chủ động của ta sẽ tốt hơn
+
+Khi truy cập vào rồi, hacker có thể cài backdoor (với reverse trafficking) or port redirector (để pass port filter và firewall) vào system của ta.
+
+"Back doors" là các cách thức mà kẻ tấn công hoặc phần mềm độc hại sử dụng để truy cập vào một hệ thống hoặc mạng mà không cần phải qua các biện pháp bảo mật thông thường. Chúng thường được tạo ra bởi các lỗ hổng trong phần mềm hoặc hệ thống, hoặc có thể được cài đặt cố ý bởi một người dùng có quyền truy cập vào hệ thống.
+"Reverse trafficking" trong ngữ cảnh này có thể liên quan đến việc sử dụng "reverse shell" hoặc "reverse connection". Đây là một kỹ thuật mà trong đó máy chủ mục tiêu kết nối lại với máy của kẻ tấn công, thay vì kẻ tấn công kết nối trực tiếp đến máy chủ. Điều này giúp vượt qua các biện pháp bảo mật như tường lửa, vì hầu hết các tường lửa đều được cấu hình để chặn các kết nối đến từ bên ngoài, nhưng lại cho phép các kết nối ra đi từ bên trong mạng.
+Khi "back doors" sử dụng "reverse trafficking", kẻ tấn công có thể thiết lập một kết nối với máy chủ mục tiêu mà không cần phải vượt qua các biện pháp bảo mật như tường lửa và nh biến pháp khác. Điều này cho phép họ truy cập vào hệ thống hoặc mạng và thực hiện các hoạt động độc hại mà không bị phát hiện.
+
+
+
+Active Directory (AD) là một dịch vụ thư mục được phát triển bởi Microsoft cho các hệ điều hành Windows Server. Nó cung cấp các cơ chế để quản lý và lưu trữ thông tin về tài nguyên mạng và người dùng, và giúp tổ chức các tài nguyên này vào một cấu trúc phân cấp dễ quản lý.
+Active Directory giúp quản lý và kiểm soát toàn bộ mạng, bao gồm máy tính, người dùng, nhóm, máy chủ, ứng dụng, tệp và thư mục, và các tài nguyên mạng khác. Nó cung cấp một cơ sở dữ liệu trung tâm để lưu trữ thông tin về tất cả các tài nguyên này và giúp quản trị viên mạng thực hiện các tác vụ như quản lý tài khoản người dùng, phân quyền, và áp dụng các chính sách bảo mật.
+Active Directory cũng hỗ trợ các dịch vụ như xác thực và ủy quyền, giúp đảm bảo rằng chỉ những người dùng và máy tính được ủy quyền mới có thể truy cập vào các tài nguyên mạng. Nó là một công cụ quan trọng cho việc quản lý và bảo mật mạng trong môi trường doanh nghiệp.
+=> Cũng phải che giấu để hacker k truy cập được thông tin về AD
+
+
+
+4) Security in Physical Layer
+Các kiểu xác thực và bảo mật được thực hiện ở các layer cao nhưng physical layer cũng qtrọng.
+Noise và fade trên đường vật lý có được dùng để ẩn message khỏi hacker. VD T1 gửi tin cho T3, T2 eavedrop ở giữa thì tần số tín hiệu ở T3 và T2 sẽ khác nhau nếu T2 và T3 k ở cùng 1 chỗ, kèm với fade và path-loss khiến hacker khó khăn trong việc giải mã. (Path-loss là hiện tượng mất mát tín hiệu trong quá trình truyền thông qua môi trường không dây. Nó là sự giảm dần của công suất tín hiệu khi nó đi qua không gian từ nguồn tới đích)
+
+Phá hoại, sét, hỏa hoạn, lực kéo quá mức, ăn mòn, động vật hoang dã, hao mòn, nghe lén, nhiễu xuyên âm, gây nhiễu
+
+3 loại media: Dây kim loại, sóng k dây, ánh sáng (fiber optic)
+
+Cơ chế gây nhiễu: di chuyển 1 dây dẫn trong từ trường sẽ xh dòng điện cảm ứng gây nhiễu dòng điện bth.
+
+Conductive tap: kết nối vật lý trực tiếp vào dây để nghe lén, dễ bị phát hiện nếu có kiểm tra vật lý.
+Inductive tap: k cần can thiệp vật lý vào dây nên khó phát hiện hơn. Sử dụng 1 thiết bị từ tính để nghe tín hiệu điện từ truyền qua. 
+=> Cả 2 pp đều rủi ro và cần mã hóa từ các layer trên để dữ liệu để đọc được tín hiệu cũng k mò ra data thực
+
+Các channel giao tiếp bth k xét đến sự suy giảm tín hiệu hay nhiễu => Họ dùng giải pháp là 1 kiểu channel mới: wiretap channel 
+Wiretap Channel là một mô hình giao tiếp được giới thiệu bởi Aaron D. Wyner vào năm 1975, trong đó một nguồn thông tin muốn gửi thông tin đến một đích mà không muốn một kẻ nghe lén (eavesdropper) có thể hiểu được thông tin đó. Trong mô hình này, có ba thành phần chính:
+1. Sender (Người gửi): Đây là nguồn thông tin muốn gửi thông tin đến đích.
+2. Receiver (Người nhận): Đây là đích mà nguồn thông tin muốn gửi thông tin đến.
+3. Eavesdropper (Kẻ nghe lén): Đây là người hoặc hệ thống muốn nghe lén thông tin mà nguồn thông tin đang cố gắng gửi đến đích.
+Wiretap Channel giả định rằng cả người nhận và kẻ nghe lén đều nhận được tín hiệu từ người gửi, nhưng kênh truyền từ người gửi đến kẻ nghe lén có nhiều nhiễu hơn so với kênh truyền từ người gửi đến người nhận. Mục tiêu là thiết kế các thuật toán mã hóa sao cho người nhận có thể giải mã thông tin một cách chính xác, trong khi kẻ nghe lén không thể hiểu được thông tin đó, ngay cả khi họ có thể nghe được tín hiệu.
+
+Power analysis attack:
+Trong quá trình thực hiện các hoạt động mật mã, mức độ tiêu thụ năng lượng của thiết bị được ghi lại. Điều này thường được thực hiện bằng cách sử dụng một oscilloscope độ nhạy cao, một thiết bị được sử dụng để hiển thị và phân tích dạng sóng của các tín hiệu điện tử.
+Bằng cách phân tích các dấu vết tiêu thụ năng lượng này, kẻ tấn công có thể tìm ra thông tin về dữ liệu mật mã đang được xử lý. Ví dụ, họ có thể nhận ra rằng thiết bị tiêu thụ nhiều năng lượng hơn khi xử lý bit '1' so với bit '0', hoặc họ có thể nhận ra một mẫu trong tiêu thụ năng lượng mà từ đó họ có thể suy ra khóa bí mật.
+
+Có nhiều loại: (slide):
+- SPA - Simple Power Analysis:
+Che giấu bằng cách làm cho mức độ tiêu thụ power độc lập với giá trị và operation đang xử lý. Làm bằng cách dùng các thiết bị tạo ra random power consumption như tạo random dummy operation. Hoặc thuật toán để cho mức tiêu thụ luôn như nhau với mọi value và operation.
+- DPA - Differential Power Analysis:
+Khi chênh lệch nhỏ, SPA k dùng được mà dùng DPA. Họ phải kết hợp với PP thống kê từ 1 lượng lớn dấu vết tiêu thụ năng lượng, ss với mô hình lý thuyết, từ đó tìm ra mẫu tiêu thụ năng lượng chuẩn và suy ra khóa bí mật. PP này đòi hỏi phải có nhiều mẫu hơn.
+Để cản, ta phải giảm signal size, thêm noise vào power consumption, sử dụng key update liên tục để môi lần chạy là đều có lượng năng lượng khác nhau
+- CPA - Correlation Power Analysis:
+1 loại model cho phép tìm ra khóa bí mật ngay cả khi mẫu thu thập năng lượng phức tạp và khó phân tích. 
+Cơ chế là ban đầu nó ghi lại dấu tiêu thụ năng lượng của 1 số mẫu plaintext của mục tiêu thực tế. Chọn 1 mô hình tiêu thụ năng lượng cho mục tiêu và dự đoán các lựa chọn khả thi cho khóa. Tính hệ số tương quan giữa số liệu thực tế ban đầu và cái vừa dự đoán bằng Pearson correlation để tìm ra khóa tương quan nhất chính là khóa bí mật.
+=> Hệ số tương quan Pearson là một thước đo thống kê mô tả mức độ tương quan giữa hai biến liên tục. Nó cung cấp một giá trị từ -1 đến 1, trong đó:
+1 nghĩa là có một tương quan dương hoàn hảo giữa hai biến (khi một biến tăng, biến kia cũng tăng).
+-1 nghĩa là có một tương quan âm hoàn hảo giữa hai biến (khi một biến tăng, biến kia giảm).
+0 nghĩa là không có tương quan giữa hai biến.
+Hệ số tương quan Pearson được sử dụng rộng rãi trong thống kê và các lĩnh vực liên quan để đánh giá mối quan hệ giữa các biến. Trong ngữ cảnh của CPA (Correlation Power Analysis), hệ số tương quan Pearson được sử dụng để tìm ra mối quan hệ giữa tiêu thụ năng lượng dự đoán và tiêu thụ năng lượng thực tế, giúp xác định khóa bí mật. Công thức khá đơn giản
+Để cản CPA, tạo random intermediate value thay đổi ở mỗi lần exec để đảm bảo mức tiêu thụ luôn thay đổi là được
+- SCA - Side Channel Attacks: 
+SCA (Side-Channel Attack) là một loại tấn công mà trong đó kẻ tấn công sẽ cố gắng sử dụng thông tin thu thập từ các kênh phụ (như tiêu thụ năng lượng, thời gian thực thi, tiếng ồn điện từ, v.v.) để tìm ra khóa bí mật hoặc thông tin mật khác.
+Khi thiết bị thực hiện các hoạt động mật mã, nó sẽ tạo ra các giá trị trung gian dựa trên input x và khóa k. Những giá trị này sẽ thay đổi trong quá trình tính toán, và mỗi lần một bit trong giá trị trung gian thay đổi (hoặc "lật"), nó sẽ tạo ra một sự thay đổi trong tiêu thụ năng lượng hoặc một số kênh phụ khác (tức dùng nhiều yếu tố chứ k chỉ năng lượng). Hàm rò rỉ kênh phụ L(w) = l mô hình hóa sự thay đổi này.
+Kẻ tấn công sẽ cố gắng phân tích các sự thay đổi này để tìm ra khóa bí mật hoặc thông tin mật khác.
+
+Ngoài ra còn có EMA (Electromagnetic Analysis) là kỹ thuật phân tích mà tập trung vào việc phân tích bức xạ điện từ phát ra từ một thiết bị. Điều này được thực hiện bằng cách sử dụng một anten để thu thập bức xạ điện từ và sau đó phân tích dữ liệu thu được để tìm ra thông tin nhạy cảm như khóa mật mã.
+
+Tấn công chèn lỗi (Fault Injection Attacks) là một loại tấn công mà trong đó kẻ tấn công cố gắng gây ra lỗi trong hoạt động của một hệ thống hoặc thiết bị để khám phá thông tin nhạy cảm hoặc thay đổi hành vi của nó.
+Các phương pháp chèn lỗi có thể bao gồm việc thay đổi điều kiện vận hành của thiết bị (như nhiệt độ, điện áp), gửi dữ liệu không hợp lệ hoặc không mong đợi, hoặc thậm chí sử dụng bức xạ để gây ra lỗi phần cứng.
+Mục tiêu của tấn công chèn lỗi có thể là để làm lộ thông tin nhạy cảm (như khóa mật mã), để làm thay đổi hành vi của hệ thống (như bỏ qua kiểm tra bảo mật), hoặc để gây ra sự cố hoặc hỏng hóc.
+=> Khá khó hiểu nhưng việc giới thiệu lỗi (glitches) hoặc nhiễu điện áp (voltage perturbations) vào một thiết bị để trích xuất thông tin có thể lấy được key
+
+Masking là quá trình làm mờ hoặc ngẫu nhiên hóa dữ liệu nhạy cảm theo cách làm cho việc tấn công phân tích công suất trở nên khó khăn hơn
+
+TDR - Time Domain Reflectometry: là một phương pháp đo được sử dụng rộng rãi trong nhiều lĩnh vực, bao gồm viễn thông, điện tử và ngành công nghiệp dầu khí, để xác định vị trí và/hoặc tính chất của một đối tượng trong một kênh truyền hoặc dây cáp. Dưới đây là cách hoạt động của TDR:
+Thiết bị TDR sẽ phát ra một xung và sau đó đo thời gian mà xung mất để đi và phản xạ trở lại. Thời gian này tỷ lệ với khoảng cách đến đối tượng phản xạ xung. Cụ thể, TDR sẽ phát ra các xung sóng vi ba cường độ thấp dọc theo dây cáp hoặc thanh dẫn điện. Khi xung sóng vi ba gặp một đối tượng (như một khuyết tật trong dây cáp hoặc bề mặt của một sản phẩm), nó sẽ được phản xạ trở lại.
+Hằng số điện môi của một vật liệu là một đặc tính vật lý mô tả cách vật liệu đó tương tác với trường điện. Cường độ của sự phản xạ sẽ phụ thuộc vào hằng số điện môi của đối tượng phản xạ xung.
+
+Các giải pháp khác để bảo vệ khỏi tấn công vật lý là pressusized dây trong khí gas, dùng bit rate nhanh hơn, power monitoring
+
+
+Security in WLAN (Wireless Local Area Network, là các chuẩn IEEE802.11x):
+WLAN có 2 thành phần là access point (MODEM wifi) và các thiết bị k dây khác.
+Khi connect WLAN cũng có các bước gửi request qua lại và authen các thứ (mật khẩu wifi), ta k xét đến phần đó.
+Các chuẩn khi truyền tin qua lại ở wifi:
+- WEP (Wired Equivalent Privacy) là một giao thức bảo mật cũ được sử dụng trong mạng không dây Wi-Fi. Tuy nhiên, nó đã được chứng minh là không an toàn và đã bị thay thế bởi các giao thức bảo mật mạnh mẽ hơn như WPA2 và WPA3. WEP có hai chế độ xác thực khác nhau: WEP Open và WEP Shared.
+1. WEP Open: Trong chế độ này, bất kỳ thiết bị nào cũng có thể kết nối với mạng không cần xác thực. Tuy nhiên, tất cả dữ liệu truyền qua mạng vẫn được mã hóa bằng khóa WEP. Điều này có nghĩa là mặc dù bất kỳ ai cũng có thể kết nối với mạng, nhưng chỉ những người có khóa WEP mới có thể đọc được dữ liệu truyền qua mạng.
+2. WEP Shared: Trong chế độ này, trước khi một thiết bị có thể kết nối với mạng, nó phải cung cấp khóa WEP chính xác. Nếu khóa không chính xác, thiết bị sẽ không được phép kết nối với mạng. Tương tự như WEP Open, tất cả dữ liệu truyền qua mạng cũng được mã hóa bằng khóa WEP.
+=> Cả hai chế độ đều có nhược điểm là khóa WEP dễ bị phá vỡ, do đó chúng không cung cấp mức độ bảo mật cao.
+
+WPA (Wi-Fi Protected Access) và WPA2 là hai giao thức bảo mật được sử dụng trong mạng không dây Wi-Fi. Chúng được phát triển để thay thế giao thức WEP (Wired Equivalent Privacy). 
+WPA: Đây là phiên bản đầu tiên của giao thức bảo mật này. WPA cung cấp một cải tiến đáng kể về bảo mật so với WEP bằng cách sử dụng TKIP (Temporal Key Integrity Protocol) để mã hóa dữ liệu RC4 128 bit.
+WPA2: Đây là phiên bản cải tiến của WPA, cung cấp mức độ bảo mật cao hơn bằng cách sử dụng AES-128 (Advanced Encryption Standard) để mã hóa dữ liệu. WPA2 hiện là giao thức bảo mật phổ biến nhất được sử dụng trong mạng Wi-Fi.
+=> Do đó wifi công cộng dù có mk vẫn k an toàn. 
+
+WPA2 Personal (còn được gọi là WPA2-PSK, với PSK là Pre-Shared Key) là một chế độ của WPA2 được thiết kế cho việc sử dụng tại nhà hoặc trong các doanh nghiệp nhỏ. Trong chế độ này, tất cả các thiết bị kết nối với mạng đầu tiên phải nhập mật khẩu để tính ra khóa bí mật được chia sẻ trước (pre-shared key). Khóa này thường được cung cấp bởi người quản lý mạng và cần được nhập vào mỗi thiết bị khi kết nối với mạng lần đầu tiên.
+Khi nhập mk, laptop và AP sẽ tính: K = PBKDF2(HMAC-SHA-1, password, SSID, SSID_length, 4096, 256) => 4096 là số vòng lặp, 256 là khóa
+Khi cả 2 đã có cùng 1 private share key thì dùng nó để mã hóa bth, người ngoài buộc phải dùng brute force để tìm ra key. Nhưng họ có 1 giải pháp khác là đi vào và hỏi mk wifi, từ đó tính ra private share key 1 cách thủ công, tiến hành nghe lén và giải ngược được data thôi. 
+Mỗi người có 1 mk riêng, đó là điểm khác so với WPA2.
+
+WPA2 Enterprise là giải pháp mạnh nhất. Khác với WPA2 Personal, trong đó tất cả các thiết bị sử dụng cùng một khóa bí mật được chia sẻ trước (pre-shared key), WPA2 Enterprise sử dụng một hệ thống xác thực 802.1X để cung cấp cho mỗi người dùng hoặc thiết bị một tài khoản và mật khẩu riêng.
+- Khi một thiết bị yêu cầu kết nối với mạng, nó sẽ được yêu cầu cung cấp tên người dùng và mật khẩu.
+- Thông tin xác thực này sau đó sẽ được gửi đến một máy chủ xác thực (thường là RADIUS - Remote Authentication Dial-In User Service), nơi nó sẽ kiểm tra. Connect vào bằng SSL/TLS via AP. 
+- Nếu thông tin xác thực là chính xác, server gửi lại 1 random private key mới cho laptop và AP để dùng. Tức key thay đổi liên tục mỗi lần connect.
+=> WPA2 Enterprise yêu cầu cấu hình phức tạp hơn và thường chỉ được sử dụng trong môi trường doanh nghiệp.
+
+Kẻ tấn công có thể tạo ra noise bằng signal mạnh hơn nhưng cùng tần số. Thậm chí fake hẳn 1 AP mới lừa người dùng connect vào vì AP mới có higher signal strength. Gửi các frame rời rạc tới host or AP để ngắt connection. Giả mạo gửi yêu cầu hủy xác thực tới host để host yêu cầu xác thực lại để khi xác thực lại sẽ connect nhầm vào fake AP, từ fakeAP sẽ bắt được password của người dùng. 
+
+
+Security in LAN
+Attack switch: 
+Port Security là một tính năng trên các switch mạng cho phép bạn kiểm soát và quản lý các thiết bị nào được phép kết nối với mỗi cổng trên switch. Điều này giúp bảo vệ mạng của bạn khỏi các tấn công như MAC flooding, trong đó kẻ tấn công cố gắng gửi một lượng lớn khung Ethernet đến switch để làm đầy bảng địa chỉ MAC của nó và buộc nó chuyển sang hoạt động như một hub, gửi tất cả các gói tin đến tất cả các cổng, tốn hết băng thông. Để dùng port security:
+Cấu hình Port Security để chỉ cho phép một số lượng nhất định địa chỉ MAC trên mỗi cổng, cũng có thể cấu hình Port Security để chỉ cho phép các thiết bị với địa chỉ MAC cụ thể kết nối với mỗi cổng. Điều này ngăn chặn kẻ tấn công sử dụng thiết bị không được phép để kết nối với mạng của bạn.
+Khi một vi phạm Port Security xảy ra (ví dụ, khi một thiết bị với địa chỉ MAC không được phép cố gắng kết nối với một cổng), bạn có thể cấu hình switch để thực hiện một hành động nhất định, như vô hiệu hóa cổng hoặc thông báo cho quản trị viên mạng.
+
+Attack ARP Protocol:
+Dynamic ARP Inspection (DAI) là một tính năng bảo mật trên các switch mạng được thiết kế để bảo vệ chống lại các tấn công dựa trên giao thức ARP (Address Resolution Protocol).
+ARP là một giao thức được sử dụng để ánh xạ địa chỉ IP với địa chỉ MAC tương ứng. Tuy nhiên, ARP không có bất kỳ biện pháp bảo mật authen nào, do đó nó dễ bị tấn công, như tấn công ARP spoofing, nơi kẻ tấn công gửi các gói tin ARP giả mạo để liên kết địa chỉ IP của một máy tính khác với địa chỉ MAC của mình.
+DAI hoạt động bằng cách kiểm tra các gói tin ARP truyền qua switch và xác minh rằng chúng không phải là giả mạo. Nó thực hiện điều này bằng cách so sánh thông tin trong gói tin ARP với một bảng địa chỉ IP/địa chỉ MAC đáng tin cậy, thường được tạo ra bằng cách sử dụng giao thức DHCP Snooping.
+Nếu một gói tin ARP không khớp với bảng địa chỉ, nó sẽ được coi là giả mạo và sẽ bị loại bỏ. Điều này ngăn chặn kẻ tấn công sử dụng tấn công ARP spoofing để chuyển hướng hoặc ngắt kết nối lưu lượng mạng.
+
+Attack DHCP protocol:
+1 client mới vào, broadcast DHCP Discover tới các DHCP Server
+DHCP Server gửi lại DHCP Offer
+Client gửi DHCP Request
+DHCP Server gửi lại DHCP ACK data
+=> K có bất cứ 1 khâu xác thực nào, chỉ đơn giản gửi và nhận address. Attacker có thể bắt gói tin ở bất cứ chỗ nào hay giả mạo DHCP Server gửi lại DHCP Offer fake cũng được.
+Do bất cứ máy trạm nào cũng có thể yêu cầu cấp IP, có thể DoS làm cạn kho địa chỉ IP của DHCP.
+
+DHCP Snooping là một tính năng bảo mật trên các thiết bị chuyển mạch mạng, giúp ngăn chặn các cuộc tấn công DHCP spoofing (giả mạo DHCP Server). Khi DHCP Snooping được kích hoạt, thiết bị chuyển mạch sẽ theo dõi các giao dịch DHCP trên mạng và học các bản ghi DHCP binding.
+Các bản ghi DHCP binding chứa thông tin về địa chỉ IP, địa chỉ MAC, tên giao diện, và thời gian thuê. Thiết bị chuyển mạch sẽ sử dụng thông tin này để phân biệt giữa các gói tin DHCP hợp lệ và không hợp lệ.
+Cơ chế DHCP Snooping phân biệt gói tin DHCP hợp lệ và không hợp lệ dựa trên cách nó xử lý các gói tin trên các cổng "trusted" và "untrusted":
+- Cổng Trusted: Đây là các cổng mà thiết bị chuyển mạch tin tưởng là nguồn của các gói tin DHCP hợp lệ. Thông thường, các cổng này được kết nối với máy chủ DHCP hoặc các thiết bị chuyển mạch khác mà đã được cấu hình DHCP Snooping.
+- Cổng Untrusted: Đây là các cổng mà thiết bị chuyển mạch không tin tưởng là nguồn của các gói tin DHCP hợp lệ. Thông thường, các cổng này được kết nối với các máy khách DHCP.
+Khi DHCP Snooping được kích hoạt:
+- Các gói tin DHCP từ máy chủ (như DHCPOFFER, DHCPACK, DHCPNAK) chỉ được chấp nhận nếu chúng đến từ cổng trusted.
+- Các gói tin DHCP từ máy khách (như DHCPDISCOVER, DHCPREQUEST) được chấp nhận từ cả cổng trusted và untrusted.
+Nếu một gói tin DHCP từ máy chủ đến từ một cổng untrusted, thiết bị chuyển mạch sẽ coi đó là không hợp lệ và từ chối gói tin đó. Điều này ngăn chặn kẻ tấn công từ việc thiết lập một máy chủ DHCP giả mạo trên một cổng untrusted.
+
+***Attack VLAN:
+VLAN, hay Virtual Local Area Network, là một kỹ thuật cho phép bạn tạo ra các mạng LAN ảo trên một mạng vật lý. Mỗi VLAN tạo ra một phạm vi quảng bá (broadcast domain) riêng biệt, giúp cải thiện hiệu suất mạng và bảo mật. VLAN cho phép bạn nhóm các thiết bị mạng dựa trên các yếu tố như chức năng, dự án hoặc vị trí địa lý, thay vì vị trí vật lý. Điều này mang lại sự linh hoạt và hiệu quả trong việc quản lý mạng.
+Ví dụ, bạn có thể tạo một VLAN cho phòng kế toán, một VLAN cho phòng kỹ thuật, và một VLAN cho quản trị mạng. Mỗi VLAN này hoạt động như một mạng LAN riêng biệt, giúp giảm lưu lượng quảng bá và tăng cường bảo mật bằng cách ngăn chặn truy cập không được phép giữa các VLAN.
+
+VLAN (Virtual Local Area Network) là một kỹ thuật cho phép tạo ra các miền quảng bá LAN logic trên một switch, giúp phân tách lưu lượng truy cập ở tầng 2 (Layer 2) của mô hình OSI. Điều này giúp kiểm soát truy cập và tách biệt các tài nguyên mạng. Mỗi VLAN có một dải IP riêng biệt, giúp phân biệt và quản lý lưu lượng truy cập một cách hiệu quả.
+Khi một frame Ethernet được chuyển từ một VLAN này sang một VLAN khác, nó được thêm một tag VLAN. Tag này được thêm vào trong trường 802.1Q (hoặc ISL - Inter-Switch Link, một giao thức của Cisco) của frame Ethernet. Tag VLAN này chứa thông tin về VLAN mà frame đó thuộc về.
+Frame chỉ được chuyển mạch (switched) trong cùng một VLAN. Điều này nghĩa là, một frame không thể được chuyển từ một VLAN này sang một VLAN khác mà không qua một thiết bị hoạt động ở tầng 3 (Layer 3), thường là một router hoặc một switch lớp 3.
+Tấn công VLAN (VLAN Attack) thường liên quan đến việc sử dụng các lỗ hổng trong cấu hình VLAN để truy cập vào các tài nguyên hoặc thông tin không được phép. Một ví dụ phổ biến của tấn công VLAN là VLAN hopping, trong đó kẻ tấn công cố gắng gửi các frame từ một VLAN này sang một VLAN khác mà không cần qua thiết bị Layer 3.
+
+Ethernet frame là một đơn vị dữ liệu cơ bản trong giao thức Ethernet, một trong những giao thức mạng phổ biến nhất được sử dụng trong LAN (Local Area Network). Một frame Ethernet bao gồm các phần sau:
+1. Preamble: Chuỗi bit giúp đồng bộ hóa việc nhận dữ liệu giữa hai thiết bị.
+2. Destination MAC Address: Địa chỉ MAC của thiết bị đích mà frame được gửi đến.
+3. Source MAC Address: Địa chỉ MAC của thiết bị nguồn mà frame được gửi từ.
+4. Type/Length: Trường này có thể được sử dụng để chỉ loại giao thức của payload hoặc độ dài của payload.
+5. Payload/Data: Phần chính của frame, chứa dữ liệu cần truyền.
+6. Frame Check Sequence (FCS): Một giá trị kiểm tra lỗi được sử dụng để đảm bảo rằng dữ liệu không bị hỏng trong quá trình truyền.
+Khi dữ liệu được gửi qua mạng Ethernet, nó được đóng gói vào trong một hoặc nhiều frame Ethernet. Mỗi frame sau đó được truyền qua mạng đến thiết bị đích, nơi nó được giải mã và dữ liệu được trích xuất.
+
+VLAN hopping là một kỹ thuật tấn công mạng mà trong đó kẻ tấn công cố gắng truy cập vào các VLAN khác từ VLAN gốc (Native VLAN). Mục đích của tấn công này là để truy cập vào các tài nguyên hoặc thông tin không được phép trên các VLAN mà kẻ tấn công không nên có quyền truy cập.
+VLAN hopping tận dụng lỗ hổng mà các frame được chuyển trong Native VLAN không cần tag VLAN. Điều này cho phép kẻ tấn công "lừa" switch để chuyển các frame vào VLAN mục tiêu.
+Có hai phương pháp chính để thực hiện VLAN hopping: tấn công Switch Spoofing và tấn công Double-tagging:
+1. Switch Spoofing: Kẻ tấn công cấu hình một thiết bị để giả mạo như một switch và sau đó tạo một trunk link với switch mục tiêu. Điều này cho phép kẻ tấn công truy cập vào tất cả các VLAN trên switch mục tiêu.
+2. Double-tagging: Kẻ tấn công gửi một frame với hai tag VLAN. Switch đầu tiên sẽ loại bỏ tag VLAN ngoài cùng (thuộc về Native VLAN) và chuyển frame với tag VLAN bên trong đến VLAN mục tiêu. Khi frame đến switch cuối cùng, tag VLAN bên trong sẽ được loại bỏ và frame sẽ được chuyển đến thiết bị đích trong VLAN mục tiêu. Điều này cho phép kẻ tấn công truy cập vào VLAN mục tiêu mà không cần truy cập trực tiếp.
+
+Trong một mạng VLAN, Native VLAN là VLAN mà tất cả các traffic không được gắn tag sẽ được chuyển đến. Điều này có nghĩa là, nếu một frame không có tag VLAN, switch sẽ giả định rằng frame đó thuộc về Native VLAN.
+Kẻ tấn công có thể tận dụng điều này để thực hiện tấn công VLAN hopping. Họ có thể gửi một frame không có tag VLAN (hoặc có tag VLAN giả mạo) đến switch, với hy vọng rằng switch sẽ chuyển frame đó đến Native VLAN. Nếu Native VLAN được cấu hình để cho phép truy cập vào các VLAN khác (ví dụ, thông qua một trunk link), kẻ tấn công có thể sử dụng điều này để "nhảy" từ Native VLAN sang VLAN mục tiêu.
+Đây là lý do tại sao quản lý cấu hình Native VLAN một cách cẩn thận là rất quan trọng khi thiết lập và bảo mật một mạng VLAN. Đặc biệt, nên tránh việc cho phép Native VLAN truy cập vào các VLAN khác và nên gắn tag cho tất cả traffic trên các trunk link để ngăn chặn tấn công VLAN hopping.
+
+DTP và VTP:
+- Dynamic Trunking Protocol (DTP) là một giao thức của Cisco giúp tự động cấu hình chế độ trunking cho cổng switch. Trunking cho phép một cổng switch chuyển mạch traffic giữa nhiều VLAN thông qua một liên kết vật lý duy nhất.
+Tuy nhiên, DTP có thể bị tấn công. Một kẻ tấn công có thể gửi một gói tin DTP giả mạo để "lừa" switch, khiến switch tạo một trunk link với thiết bị của kẻ tấn công. Điều này cho phép kẻ tấn công truy cập vào các VLAN mà họ không nên có quyền truy cập.
+Để bảo vệ mạng khỏi các tấn công DTP, bạn nên tắt chế độ dynamic và chỉ định chế độ access cho tất cả các cổng switch. Chế độ access ngăn chặn cổng từ việc trở thành một trunk link và chỉ cho phép traffic từ một VLAN duy nhất đi qua. Điều này giúp giảm thiểu rủi ro của tấn công VLAN hopping và tấn công DTP.
+- VLAN Trunking Protocol (VTP) là một giao thức của Cisco giúp tự động chuyển tiếp thông tin cấu hình VLAN từ máy chủ VTP (VTP server) đến máy khách VTP (VTP client). Điều này giúp đơn giản hóa quá trình quản lý và cấu hình VLAN trên một mạng lớn. Thông tin VTP được gửi từ VTP server có thể tạo, sửa đổi hoặc xóa các VLAN trên các switch VTP client.
+Tuy nhiên, VTP cũng có thể bị tấn công. Một kẻ tấn công có thể gửi một frame giả mạo để xóa một VLAN (tạo ra một cuộc tấn công từ chối dịch vụ, DoS) hoặc thêm một VLAN mới cho tất cả các switch (tạo ra một cuộc tấn công broadcast storm).
+Để bảo vệ mạng khỏi các tấn công VTP, bạn nên chỉ cho phép VTP phải từ trên các cổng trusted và sử dụng xác thực khi sử dụng VTP. Điều này giúp đảm bảo rằng chỉ các thiết bị đáng tin cậy mới có thể gửi hoặc nhận thông tin cấu hình VLAN, và rằng các gói tin VTP giả mạo sẽ không được chấp nhận.
+
+
+
+2) Cryptography:
+Mod: a = b (mod n)
+Giải pt 1 = ax + by với x y nguyên bằng định lý ơ le
+Định lý ơ le giúp ta biến đổi về dạng ax = 1 (mod n) khi biết a và n.
+
+Số mũ và định lý fermat => Euler theorem phi function
+A lấy public key của B mã hóa thành m. A dùng private key của mình mã hóa m thành n và gửi B cả m và n. Để chứng minh A là người gửi và chỉ B đọc đc.
+Khi dùng hash vẫn phải gửi message lớn đã mã hóa, chỉ rút gọn đc phần sau khi ký bằng pivkey của mình thôi
+
+Symkey gặp vấn đề trao đổi khóa public ta dùng bên thứ 3 là KDC (Key Distribution Center)
+Pubkey gặp vấn đề lấy đúng pubkey chứ kp giả mạo trên internet qua CA. CA gắn pubkey với 1 entity và có tạo 1 certificate chứa E's pubkey ký bởi CA xác nhận rằng "this is E's pubkey"
+
+Khi A muốn lấy pubkey của B:
+Bob generates a pair of keys: a private key, which he keeps secret, and a public key, which he shares with a CA. The CA then creates a certificate that binds Bob's identity to his public key. This certificate is digitally signed by the CA using its private key.
+When Alice wants to communicate securely with Bob, she first needs Bob's public key. She can get this by requesting Bob's certificate. This request can be fulfilled by Bob himself or from a public directory where Bob's certificate is stored.
+Alice, upon receiving Bob's certificate, needs to verify its authenticity. She does this by applying the CA's public key to the digital signature on Bob's certificate. This process is called signature verification and it ensures that the certificate indeed came from the trusted CA and that it has not been tampered with.
+Once the certificate is verified, Alice can trust that the public key in the certificate is indeed Bob's public key. She can now use this public key got from certificate to encrypt a message that only Bob can decrypt using his private key.
+=> Qtr đảm bảo A lấy được public key của B chuẩn là đúng từ tổ chức CA đó
+
+Trong browser có 1 list các trusted CA mà có thể thấy trong phần settings
+
+Quy trình xác thực máy chủ thông qua SSL (Secure Sockets Layer) hoạt động như sau:
+Trình duyệt web của bạn (như Chrome, Firefox, Safari, etc.) đã được cài đặt sẵn các khóa công khai của các Cơ quan phát hành chứng chỉ (CA) đáng tin cậy. Những khóa này được sử dụng để xác minh chứng chỉ SSL của máy chủ.
+Khi bạn truy cập một trang web sử dụng SSL (thường được biểu thị bằng "https" trong URL), trình duyệt của bạn sẽ yêu cầu máy chủ gửi chứng chỉ SSL của nó. Chứng chỉ này đã được phát hành bởi một CA đáng tin cậy.
+Trình duyệt sẽ sử dụng khóa công khai của CA (đã được cài đặt sẵn trong trình duyệt) để giải mã và xác minh chứng chỉ SSL của máy chủ. Nếu chứng chỉ được xác minh thành công, trình duyệt sẽ trích xuất khóa công khai của máy chủ từ chứng chỉ.
+Sau khi trích xuất khóa công khai của máy chủ, trình duyệt sẽ sử dụng nó để mã hóa tất cả thông tin được gửi đến máy chủ. Máy chủ sau đó sẽ giải mã thông tin này bằng khóa riêng của nó. Quá trình này đảm bảo rằng tất cả dữ liệu trao đổi giữa trình duyệt và máy chủ được bảo mật và không thể đọc được nếu bị người khác chặn đứng.
+=> Mọi browser hiện tại đều như v
+
+Pb telnet và ethernet:
+- Telnet là một giao thức mạng được sử dụng để điều khiển từ xa và truy cập vào các thiết bị mạng khác nhau. Nó thường được sử dụng để kết nối vào các thiết bị như máy chủ, router, switch, hoặc các hệ thống khác từ xa.
+Đặc điểm: Telnet truyền dữ liệu dưới dạng văn bản không mã hóa, điều này có nghĩa là thông tin gửi và nhận có thể bị hiển thị ngay cả khi không sử dụng các phương tiện bảo mật. Do đó, trong môi trường không an toàn, Telnet không được khuyến nghị, và thay vào đó, người ta thường sử dụng SSH (Secure Shell) để cung cấp một kênh kết nối an toàn hơn.
+- Ethernet là một tiêu chuẩn liên kết vật lý và giao thức truyền dẫn dữ liệu giữa các thiết bị trong mạng máy tính. Nó là một phần quan trọng của cơ sở hạ tầng mạng và thường được sử dụng trong môi trường LAN (Local Area Network).
+Đặc điểm: Ethernet đặc trưng bởi việc sử dụng cáp và giao thức truyền dữ liệu theo mô hình CSMA/CD (Carrier Sense Multiple Access with Collision Detection) trong các mạng có cấu trúc bus. Ethernet đã trải qua nhiều cải tiến và phát triển từ các tốc độ truyền dẫn thấp như 10 Mbps đến cao như 100 Gbps và thậm chí 1 Tbps.
+=> Telnet và Ethernet là hai khái niệm khác nhau, với Telnet là một giao thức truy cập từ xa, trong khi Ethernet là một tiêu chuẩn truyền dẫn dữ liệu trong mạng máy tính.
+
+Promiscuous mode (chế độ thuận lợi) là một chế độ hoạt động của một card mạng, giúp thiết bị có khả năng nhận và xử lý tất cả các gói tin truyền qua mạng, bao gồm cả những gói tin không dành cho nó. Chế độ này là quan trọng trong việc phân tích và theo dõi giao thông mạng.
+Khi một card mạng được đặt vào chế độ thuận lợi, nó sẽ lắng nghe tất cả các gói tin trên mạng mà nó kết nối, không chỉ những gói tin có địa chỉ MAC (Media Access Control) là địa chỉ của card mạng đó. Điều này cho phép người quản trị mạng hoặc các công cụ phân tích mạng như Wireshark có thể theo dõi và phân tích toàn bộ giao thông mạng, bao gồm cả những dữ liệu mà không phải là dành cho card mạng đó.
+
+
+
+3) Security in network:
+-> Internet Registrar và DNS Server là hai thành phần quan trọng của hệ thống tên miền Internet, nhưng chúng đóng vai trò khác nhau:
+1. Internet Registrar: Đây là tổ chức hoặc công ty được ủy quyền bởi ICANN (Corporation for Assigned Names and Numbers) để đăng ký và quản lý tên miền. Khi bạn mua một tên miền từ một Registrar, họ sẽ giúp bạn đăng ký tên miền đó với ICANN. Registrar cũng cung cấp dịch vụ quản lý tên miền, cho phép bạn cập nhật thông tin liên quan đến tên miền của mình, bao gồm địa chỉ DNS.
+2. DNS Server (Domain Name System Server): Đây là máy chủ chịu trách nhiệm chuyển đổi tên miền (ví dụ: www.example.com) thành địa chỉ IP tương ứng, giúp máy tính và các thiết bị khác trên Internet có thể truy cập đúng trang web hoặc dịch vụ. Khi bạn cập nhật địa chỉ DNS cho tên miền của mình thông qua Registrar, thông tin này sẽ được cập nhật trên DNS Server, giúp người dùng trên Internet tìm thấy trang web của bạn.
+
+Reconnaisance còn bao gồm cả vc nhận diện các ứng dụng đang chạy trên máy đó thông qua fingerprint của các app nếu có trong response.
+
+-> Wiretapping và Eavesdropping đều là các phương pháp giám sát hoặc nghe lén nhưng chúng có một số khác biệt:
+1. Wiretapping: Người thực hiện phải làm các hành động cụ thể để có thể nghe lén được. Passive wiretapping or active wiretapping. Trong một số trường hợp, wiretapping có thể yêu cầu sự can thiệp vật lý vào hệ thống như kết nối trực tiếp dây vào mạng để nghe lén.
+2. Eavesdropping: Đây là quá trình nghe lén hoặc giám sát các cuộc trò chuyện hoặc truyền dữ liệu mà không cần can thiệp trực tiếp vào hệ thống. Nó có thể thực hiện dễ dàng hơn, thg là môi trường k dây. VD admin sử dụng tool để quản lý lưu lượng mạng thì vô tình cũng nghe lén được các thông tin truyền qua, tự nhiên nó là eavesdropping. 
+
+Wiretapping có thể có các pp khác nhau tùy vào loại dây, microwave, satellite link,..
+VD theo dõi qua trung bình hệ số tự cảm hoặc connect vào dây, có thể phát hiện thông qua sự thay đổi về trở kháng của dây.
+VD theo dõi qua tín hiệu không dây, có thẻ bảo vệ bằng cách sử dụng kỹ thuật đa phức (multiplexing) ở mức độ cao. Đa phức (Multiplexing) là quá trình kết hợp nhiều tín hiệu số hoặc tín hiệu analog thành một tín hiệu duy nhất để truyền trên một kênh truyền thông duy nhất. Khi áp dụng đa phức ở mức độ cao trên các liên kết vệ tinh, nhiều tín hiệu sẽ được kết hợp và truyền đi cùng một lúc. Điều này làm tăng độ phức tạp của dữ liệu truyền đi, khiến việc giám sát trái phép (wiretapping) trở nên khó khăn hơn nhiều. Người giám sát trái phép sẽ cần phải tách các tín hiệu này ra từ tín hiệu tổng hợp, điều này đòi hỏi kiến thức và công nghệ chuyên sâu. Do đó, việc sử dụng đa phức ở mức độ cao có thể giúp bảo vệ các liên kết vệ tinh khỏi việc giám sát trái phép.
+
+Có nhiều vấn đề khác như tín hiệu k dược mã hóa. DHCP protocol gán IP mà k authen, nếu ai hack được vào và có 1 IP là có thể dùng nó để truy cập internet rồi.
+
+Impersonation attack: kiểu tấn công khiến mình trở thành người valid authen bằng cách foil authentication
+By guest 
+By eavesdropping: 
+VD: 
+Nếu mật khẩu được chia thành hai phần 7 ký tự, thì mỗi phần chỉ có 67^7 khả năng nếu có 67 kỹ tự. Do đó, một kẻ tấn công chỉ cần thử tối đa 2 lần 67^7 để đoán được cả hai phần.
+Tuy nhiên, nếu mật khẩu 14 ký tự được mã hóa như một khối duy nhất, thì số lần thử cần thiết để phá vỡ mã hóa sẽ là 67^14, một con số lớn hơn nhiều.
+Vì vậy, lời khuyên ở đây là nên mã hóa mật khẩu trước khi chia nó thành các phần nhỏ để truyền đi, không phải ngược lại
+
+By using lack of authen, wellknown authen:
+Nhiều hệ thống yếu do cho phép các trusted user và host trong list auto đc connect vào hoặc 1 backdoor như acc và pass trùng nhau là auto vào hoặc admin default password, nguy hiểm
+
+By exploit trusted authen:
+Host A trust host B thì ngay cả 1 user X trong host B cũng có thể giả mạo user Y trong host B vì nó chỉ check cứ host B là pass
+
+Spoofing tương tự nhưng k cần foil authen
+1) Masquerading: website giả mạo web thực có thể với mục đích là steal customer
+2) Session hijacking: đạt được authen ở mỗi session của user. Vd user browse vé ở trang gốc nhưng khi mua vé thì thành mua vé từ api 1 website khác do các packet chuyển đi đã bị nghe lén và thay đổi
+3) MITM
+Session hijacking can thiệp từ sau khi ng dùng thiết lập session. MITM thì là ngay từ lúc đầu
+
+Misdelivery:
+Do mạng hoặc do tên email quá giống nhau khiến gửi nhầm
+
+Có nhiều điểm lộ message, ngoài router các thứ thì temporary buffer cũng có thể bị lộ
+
+
+Website attack:
+- dot dot attack: hay
+- lỗi từ vc lập trình sai, backend k nên tin data trả tù frontend mà phải luôn tính toán lại
+Tương tự html code frontend gọi lệnh mà sẽ thực thi ở backend
+
+DoS:
+Kiểu vật lý như cắt dây, tạo noise cũng là 1 loại physical DoS attack
+
+1 kịch bản tấn công dùng chargen protocol là 1 tool dùng cho testing network. Tool này có thể sinh ra chuỗi các packet gửi đi. 
+VD attacker dùng chargen ở server X gửi cho Y, Y gửi lại echo reply. Cứ như thế 2 server rất bận chỉ làm vc với nhau. Hacker mà vào đc server X có thể tự cài cho nó tự gửi packet cho chính mình liên tục để hết băng thông
+
+Sync flood: 
+Họ phải liên tục thay đổi source ip spoofing để khó bị phát hiện hơn vì quá nhiều connection request từ cùng 1 source sẽ khả nghi
+
+Packet dropping attack:
+Attacker chiếm đc 1 router R. Vì router chứa thông tin luôn tính toán đg đi ngắn nhất tới đích, hacker có thể lừa advertise rằng R gửi đc tới đích nhanh nhất và khi nhận gói về thì lại drop đi
+Drop hết đc gọi là black hole attack
+
+Threats to active or mobile code:
+Code pushed bởi server S to client C để thực hiện trên C
+
+1) Cookies
+Persession cookies lưu trên memory, persistent cookies lưu trên disk
+Hacker có thể bắt đc cookies của user trên đg truyền
+
+2) Script
+Http without CGI: browser contact server với url, server send lại filename trong url
+Http with CGI: server execute CGI script và trả lại kq có thể là bất cứ thứ gì như ảnh, sound,..
+
+Chả cần pass authen, hacker có thể MITM thay đổi params của cgi script để phá
+
+3) Active code
+Server gưi code cho client thực hiện để tránh quá tải. Là java và ActiveX controls.
+
+Code có thể bị lỗi gây crash system của user hoặc quá tải bộ nhớ. File có thể lỗi or chưa virus
+Chỉ cần user có cơ chế verify code origin, chặn download từ nguồn k tin cậy 
+
+4) Automation execution by type
+Nhiều hệ thống tự động execute file dựa vào extension là lỗ hổng lớn, thậm chí k có extension tự hiểu là chạy exe
+
+Script attack: tải script về chạy
+
+

@@ -1,0 +1,124 @@
+B1:
+Information Theory học về gì, source nén và channel truyền
+Information là gì, các loại data
+Communication system là việc tái tạo ... Digital communication system
+Mô hình 3 - 5 - 7, Vấn đề khi transport hàng hóa
+Vai trò của từng cục trong mô hình 7
+Các loại communication channel: digital signal là kết hợp của quantized signal và time discrete signal
+BSC
+
+B2:
+Source Model là gì, primitive information 
+Tính chất của primitive: continuous, truyền trực tiếp or transform thành discrete
+Source message: instance of source, randomly generated
+Biểu diễn discrete source, continuous source 2 bước chuyển sang discrete
+Channel: signal transmisstion / information transmission. Môi trường. noise (ez). transition prob. Matrix m input n output (ez)
+
+B3:
+Nguồn gắn với 1 RV vì 1 nguồn sinh ra 1 ký tự mới k thể đoán trước chính là 1 RV
+Việc tính entropy của nguồn là lượng thông tin của nguồn luôn(lượng tin trung bình của 1 ký hiệu nguồn). Trong thực tế, lượng thông tin của nguồn ta phải tính chuẩn dựa vào message của nguồn sinh ra nhưng điều này ta kb. Do đó ta chỉ ước lượng được lượng thông tin của nguồn mà thôi. Và ta ước lượng nó bằng công thức entropy tức chỉ dựa vào xs của từng ký hiệu nguồn mà k cần biết cụ thể từng message để tính lượng info của nguồn như phân tích thực tế.
+Measure quantity của thông tin. Công thức measure of uncertainty. Ký hiệu và đơn vị
+Review of Prob: công thức cơ bản, random var thực chất là 1 hàm số
+Amount of information là uncertainty, source là RV
+Ta k thể biết được message output để tính lượng information trong nó mà chỉ estimate thông qua giá trị trung bình của uncertainty là E[I(xk)] trong xs thống kê, ký hiệu là H(X) - expected average value of information from a source X - Entropy.
+BT với entropy. Binary source. 
+Joint entropy, conditional entropy, relationship bw 2 cái => BT: cho đúng ma trận P(X,Y) tính ra mọi entropy và mutual information
+
+Mutual information là relative entropy của 2 thằng X và Y. Mang ý nghĩa kiểu lượng thông tin nguồn X transfer to nguồn Y thành công
+Các công thức của mutual info: CT thuần và công thức corollary
+I(message) = number of info in message mà nguồn sinh ra(or số lượng ký tự) * H(X) (là entropy của nguồn sinh message)  => ý nói: source -> message -> symbol(information) -> bit thì cái H là lượng symbol trung bình thôi
+
+B4:
+Source coder dùng 1 lượng hữu hạn nhỏ nhất combination of code symbol để biểu diễn information(vì k thể cứ 1 information là 1 symbol được vì đang nén biểu diễn ngắn nhất có thể mà)
+Channel coder cơ chế check số lượng số 1 là even
+Modulator: mỗi code symbol được bd bằng 1 binary sequence -> sóng có tc của qtr vật lý như sóng âm, sóng điện từ
+Vấn đề về noise of physical medium transmit
+Discrete channel: memory, memoryless; continuous channel
+
+B5: 
+Information source là ta đang nói tới vai trò kết hợp của cả source và source coder
+Pb: Discrete memoryless source biểu diễn bằng (X, P(X)). Discrete memory source bd bằng Markov chain gọi là m-th Markov source.
+Continuous source xác suất nó dùng phân bố density, 
+Markov source P(xj,n|xi,n-1); chứa state, transition, label for transition, initial prob(xác suất của chuỗi bắt đầu bằng từng ký tự trong alphabet) và transition prob, có state transition diagram; Example slide rất dễ hiểu.
+Cách biểu diễn thg dùng của nó là P(0|10) transition từ 10->00; 
+Transitino matrix; wi(t); W(t+1)=PI*W(t); stationary distribution sẽ coi mọi thời điểm thì sự phân bố xs là k thay đổi; nhân 2 ma trận;
+Bài tập tính wi của stationary distribution biết transition matrix.
+Entropy of state ith of markov source, entropy of source go out of state i. Entropy of markov source => BT trong slide
+Redundance of source: Khi H(X)<H(X)max thì số lượng info trong symbol not max và cần nhiều symbol hơn bth, có thể nén được => tính redundancy of source
+Extension source: 2 công thức tính P(si^n) độc lập xs vì ghép từng nguồn k có quan hệ và công thức H(S^n) => BT slide
+Information rate: chỉ cần nhớ công thức tính R = n0*H(X) với n0 là số lượng symbol trong 1 đơn vị thời gian. 1 baud = 1 symbol/second
+
+B6: 
+Input, output, noise đều là RV, đều là source.
+Discrete channel có tc: r (số lượng input) = s (số lượng output) = n => biểu diễn bằng 1 cái diagram bth
+Prob trên đường chéo lớn là correct prob, ngoài đường chéo lớn là wrong prob. Nếu mọi correct prob equal, mọi wrong prob cũng equal. Mọi xs trên 1 hàng luôn bằng 1 (hiển nhiên). Transition diagram. Lượng info transfer theo 2 chiều đều bằng nhau.
+BT slide
+
+
+
+
+Tránh nhầm: 
+Discrete memoryless source biểu diễn bằng (X, P(X))
+Discrete memory source bd bằng Markov chain gọi là m-th Markov source(phụ thuộc vào m preceding symbol or nói là state nó chứa sequence of m symbol, nói cách nào cũng được)
+Nguồn k nhớ luôn là ergodic, nguồn có nhớ chỉ là ergodic khi được biểu diễn bằng markov chain. Tức nguồn markov mà k ergodic chỉ khi có 1 cái xs luôn là 1 kbh thoát khỏi state đó được.
+
+Entropy là lượng thông tin đạt max khi độ mơ hồ đạt max là khi source X tạo data phân bố đều, khi đó ta k thể đoán được đầu ra 
+Nên nhớ 1 code symbol có thể biểu diễn bởi 1 binary sequence nhé vì 1 symbol bằng 1 bit thì vỡ cmn mồm à vì binary chỉ có 2 giá trị nhưng symbol có rất nhiều. Mà information đc bd bằng các combination of code symbol.
+Thực tế: source -> info -> data -> code symbol -> code word -> sóng => tức k hề có binary gì ở đây, ta đang nói đến binary để nói về qtr bd sóng dễ hơn
+
+
+
+Tóm tắt hơn nữa:
+B1: 
+Information, data, continuous data, discrete data, digital data, binary data, binary information, data message, information message, digital information system, source, source coder, channel coder, channel demodulator, channel, channel decoder, source decoder, sink, analog channel, discrete channel, digital channel, Binary Symmetric Channel (BSC).
+
+B2:
+Source model, primitive information
+
+B3:
+Công thức tính uncertainty của 1 symbol trong alphabet
+Công thức xs cơ bản
+Công thức tính entropy là uncertainty của 1 nguồn, Hmax(X)
+Công thức mutual info => nên tính relative từ H(x) + H(y) - H(x,Y) là tốt nhất
+
+B4: 
+Parity code
+
+B5: 
+Discrete:
+Discrete memoryless source
+Discrete source with memory
+Ergodic source: là source mà có statistical properties tương đồng nhau mọi lúc. Memoryless luôn ergodic, memory source thì chỉ ergodic khi được model bởi markov chain
+mth - Markov source. Non-ergodic markov source
+Transition matrix, Stationary distribution
+Công thức tính amount of info of Markov source (entropy of markov)
+
+=> Chú ý là entropy of memoryless source khác với memory of markov source
+Phân biệt:
+Ta chỉ làm việc với ergodic source. Tức là các công thức bình thường đều là của memoryless source. Còn source with memory thì luôn xét là markov source
+Source with memory: biểu diễn bằng (X,P(x)), các công thức bth
+Markov source: biểu diễn bằng transition matrix hoặc state diagram; các công thức là kiểu wt là probability of source at time t, tính amount of info of markov source, tính entropy of 1 state của source
+VD markov source đề bài k nói gì về tg thì ta mặc định coi là mọi lúc, xs là như nhau của 1 state
+Công thức extension source
+Công thức information rate
+
+B6:
+Discrete Channel have memory channel, memoryless channel and binary channel; Continuous channel => Chỉ chú ý vào memory less channel và binary channel
+Memory less: transition matrix, transition diagram
+Loss hay noise information là H(X|Y)
+
+
+Bài tập:
+2) Biểu diễn 1 source memory less
+3) Tính suprise của 1 event
+3) Tính entropy của 1 nguồn / 1 nguồn binary. Tính join entropy / conditional entropy. 
+3) Tính mutual information
+3) Entropy là lương tin trung bình của 1 ký hiệu nguồn => tính lượng tin trung bình của 1 message
+5) Tìm probability of stationary markov source / cách nhân 2 ma trận
+5) Tìm probability of markov source biết W0 và Transition matrix
+5) Tính entropy of markov source
+5) Tính redundancy of 1 source
+5) Tính xs và entropy của extension source
+5) Tính information rate
+6) Tính entropy và mutual information của 1 channel
+
